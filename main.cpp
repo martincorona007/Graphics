@@ -120,16 +120,16 @@ int main()
                 
                     for(int x=aux_i1;x<=aux_i2;x++){
                         for(int y=aux_j1;y<=aux_j2;y++){
-                            printf("M %i",matrix_1[x][y]);
+                            printf("M1 %i",matrix_1[x][y]);
                             sum1+=matrix_1[x][y];
                         }
                     }
                     printf("\nPOINT3 [%i,%i] + [%i,%i]",aux_i1,aux_j1,aux_i2,aux_j2);
             
-                    int i=0;
+                    int i=aux_j1;
                     while (i<=aux_j2)
                     {
-
+                        printf("M2 %i",matrix_1[0][i]);
                         sum1+=matrix_1[0][i];
                         i++;
                     }
@@ -168,7 +168,9 @@ int main()
             scanf("%i",&op);
             if(op==0){
                 flag_3=true;
-                
+                aux_j=0;
+                aux_i=0;
+                sum1=0;
             }
 
         }while (op!=1);
