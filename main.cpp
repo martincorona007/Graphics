@@ -7,7 +7,7 @@ int matrix_1[20][20];
 int matrix_2[20][20];
 
 
-int n,m,number,aux_i,aux_j,aux_i1,aux_j1,aux_i2,aux_j2,sum=0,size;
+int n,m,number,aux_i,aux_j,aux_i1,aux_j1,aux_i2,aux_j2,sum=0,sum1=0,size,rule_1=0,op;
 bool flag_1=true,flag_2,flag_3=true;
 
 void print();
@@ -45,8 +45,7 @@ int main()
         //ask the data
         for(int i=0;i<n;i++){
             for(int j=0;j<m;j++){
-                printf("OME");
-                int data=rand()%50+1;
+                 int data=rand()%50+1;
                 matrix_1[i][j]=data;
             }
         }
@@ -73,50 +72,108 @@ int main()
                     printf(" [%i]{%i,%i} ",matrix_2[i][j],i,j);
                 }
             }
-
-        printf("\nSelect number: ");
+        
+            
+        do{
+          //s  printf("\nPOINT4 [%i,%i] + [%i,%i]",aux_i1,aux_j1,aux_i2,aux_j2);
+            
+            
+            printf("\n\nSelect number: ");
             scanf("%i",&number);
-        
-        for(int i=0;i<n;i++){//FIND THE NUMBER AND VERIFY IF EXITS
-            for(int j=0;j<m;j++){
-                if(flag_3){
-                    if(matrix_1[i][j]==number){
-                        printf("Yes [%i,%i]",i,j);
-                        aux_i=i;
-                        aux_j=j;
-                        flag_2=true;
-                        
-                        flag_3=false;
-                    }else{
-                        flag_2=false;
+            
+            for(int i=0;i<n;i++){//FIND THE NUMBER AND VERIFY IF EXITS
+                for(int j=0;j<m;j++){
+                    if(flag_3){
+                        if(matrix_1[i][j]==number){
+                            printf("Yes [%i,%i]",i,j);
+                            aux_i=i;
+                            aux_j=j;
+                            flag_2=true;
+                            
+                            flag_3=false;
+                        }else{
+                            flag_2=false;
+                        }
+
                     }
+                }
+            }
+                        //VERIFY IF THE NUMBER EXIST
+            if(flag_2==false){
+                printf("Number not found");
+            }else if(flag_2==true){
+                printf("out [%i,%i]",aux_i,aux_j);
+                aux_i1=aux_i2=aux_i;
+                aux_j1=aux_j2=aux_j;
+                aux_i1-=1;aux_j1-=1;
+                aux_i2+=1;aux_j2+=1;
+                printf("\nPOINT1 [%i,%i] + [%i,%i]",aux_i1,aux_j1,aux_i2,aux_j2);
+                rule_1=n;
+                rule_1-=1;
+                printf("\n aux_i2 %i rule_1 %i ",aux_i2,rule_1);
+                //BELOW SIDE
+                if(aux_i2>rule_1){
+                    aux_i2-=1;
+                    printf("INSIDE");
+                    printf("\nPOINT2 [%i,%i] + [%i,%i]",aux_i1,aux_j1,aux_i2,aux_j2);
+            
+                
+                    for(int x=aux_i1;x<=aux_i2;x++){
+                        for(int y=aux_j1;y<=aux_j2;y++){
+                            printf("M %i",matrix_1[x][y]);
+                            sum1+=matrix_1[x][y];
+                        }
+                    }
+                    printf("\nPOINT3 [%i,%i] + [%i,%i]",aux_i1,aux_j1,aux_i2,aux_j2);
+            
+                    int i=0;
+                    while (i<=aux_j2)
+                    {
+
+                        sum1+=matrix_1[0][i];
+                        i++;
+                    }
+                    matrix_2[aux_i][aux_j]=sum1;
 
                 }
-            }
-        }
-        //VERIFY IF THE NUMBER EXIST
-        if(flag_2==false){
-            printf("Number not found");
-        }else if(flag_2==true){
-             printf("out [%i,%i]",aux_i,aux_j);
-            aux_i1=aux_i2=aux_i;
-            aux_j1=aux_j2=aux_j;
-            aux_i1-=1;aux_j1-=1;
-            aux_i2+=1;aux_j2+=1;
-            printf("\nPOINT [%i,%i] + [%i,%i]",aux_i1,aux_j1,aux_i2,aux_j2);
-            
-            
-            //normal
-            for(int x=aux_i1;x<=aux_i2;x++){
-                for(int y=aux_j1;y<=aux_j2;y++){
-                    printf("M %i",matrix_1[x][y]);
-                    sum+=matrix_1[x][y];
-                    // printf("sum %i",sum);
+
+                //normal
+                /*for(int x=aux_i1;x<=aux_i2;x++){
+                    for(int y=aux_j1;y<=aux_j2;y++){
+                        printf("M %i",matrix_1[x][y]);
+                        sum+=matrix_1[x][y];
+                        // printf("sum %i",sum);
+                    }
+                }*/
+                printf("\nMatrix 1x");
+                for(int i=0;i<n;i++){
+                        printf("\n");
+                    for(int j=0;j<m;j++){
+                        printf(" [%i]{%i,%i} ",matrix_1[i][j],i,j);
+                    }
                 }
+                printf("\nMatrix 2x");
+                for(int i=0;i<n;i++){
+                        printf("\n");
+                    for(int j=0;j<m;j++){
+                        printf(" [%i]{%i,%i} ",matrix_2[i][j],i,j);
+                    }
+                }
+                printf("\nthe sum %i",sum1);
+            
             }
-            printf("\nthe sum %i",sum);
+
+
+            printf("\n\nSelect 1 to finish 0 to cotinue: ");
+            scanf("%i",&op);
+            if(op==0){
+                flag_3=true;
+                
+            }
+
+        }while (op!=1);
         
-        }
+        
 
 
         
