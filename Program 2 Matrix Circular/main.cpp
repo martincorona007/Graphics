@@ -8,7 +8,7 @@ int matrix_2[20][20];
 
 
 int n,m,number,aux_i,aux_j,aux_i1,aux_j1,aux_i2,aux_j2,sum=0,sum1=0,size,rule_1=0,op;
-int sect_a=0,sect_b=0;
+int sect_a=0,sect_b=0,sect_c=0,sect_d=0,sect_e=0;
 bool flag_1=true,flag_2,flag_3=true;
 
 
@@ -120,16 +120,84 @@ int main()
                 if(aux_i2<=rule_1){//CENTER SIDES
                     sect_b=1;
                 }
+                if(aux_i1<0){//ABOVE SIDE
+                    sect_c=1;
+                    sect_b=0;
+                    sect_a=0;
+                }
+                if(aux_j2>rule_1){//RIGHT SIDE
+                    sect_d=1;
+                    sect_b=0;
+                }
+                if(aux_j1<0){//LEFT SIDE
+                    sect_e=1;
+                    sect_b=0;
+                }
+                //LEFT SIDE
+                if(sect_e){
+                    aux_j1+=1;
+                    for(int x=aux_i1;x<=aux_i2;x++){
+                        for(int y=aux_j1;y<=aux_j2;y++){
+                            printf("M6a >%i< {%i,%i}",matrix_1[x][y],x,y);
+                            sum1+=matrix_1[x][y];
+                        }
+                    }
+                    int i=aux_i1;
+                    while (i<=aux_i2)
+                    {
+                        printf("M6b >%i< {%i,%i}",matrix_1[i][rule_1],i,rule_1);
+                        sum1+=matrix_1[i][rule_1];
+                        i++;
+                    }
+                    matrix_2[aux_i][aux_j]=sum1;
+                }
+                //RIGHT SIDE
+                if (sect_d){
+                    aux_j2-=1;
+                    for(int x=aux_i1;x<=aux_i2;x++){
+                        for(int y=aux_j1;y<=aux_j2;y++){
+                            printf("M5a >%i< {%i,%i}",matrix_1[x][y],x,y);
+                            sum1+=matrix_1[x][y];
+                        }
+                    }
+                    int i=aux_i1;
+                    while (i<=aux_i2)
+                    {
+                        printf("M5b >%i< {%i,%i}",matrix_1[i][0],i,0);
+                        sum1+=matrix_1[i][0];
+                        i++;
+                    }
+                    matrix_2[aux_i][aux_j]=sum1;
+                }
+                
+                //ABOVE SIDE
+                if (sect_c){
+                    aux_i1+=1;
+                    for(int x=aux_i1;x<=aux_i2;x++){
+                        for(int y=aux_j1;y<=aux_j2;y++){
+                            printf("M4a >%i< {%i,%i}",matrix_1[x][y],x,y);
+                            sum1+=matrix_1[x][y];
+                        }
+                    }
+                    int i=aux_j1;
+                    while (i<=aux_j2)
+                    {
+                        printf("M4b >%i< {%i,%i}",matrix_1[aux_j2][i],aux_j2,i);
+                        sum1+=matrix_1[rule_1][i];
+                        i++;
+                    }
+                    matrix_2[aux_i][aux_j]=sum1;
+                }
+                
                 //BELOW SIDE
                 if(sect_a){
                     aux_i2-=1;
-                    printf("INSIDE");
                     printf("\nPOINT2 [%i,%i] + [%i,%i]",aux_i1,aux_j1,aux_i2,aux_j2);
             
                 
                     for(int x=aux_i1;x<=aux_i2;x++){
                         for(int y=aux_j1;y<=aux_j2;y++){
-                            printf("M1 %i",matrix_1[x][y]);
+                            printf("M1a %i",matrix_1[x][y]);
                             sum1+=matrix_1[x][y];
                         }
                     }
@@ -138,7 +206,7 @@ int main()
                     int i=aux_j1;
                     while (i<=aux_j2)
                     {
-                        printf("M2 %i",matrix_1[0][i]);
+                        printf("M1b %i",matrix_1[0][i]);
                         sum1+=matrix_1[0][i];
                         i++;
                     }
@@ -146,20 +214,19 @@ int main()
 
                 }
 
-                printf("\nPOINT5 [%i,%i] + [%i,%i]",aux_i1,aux_j1,aux_i2,aux_j2);
+            //    printf("\nPOINT5 [%i,%i] + [%i,%i]",aux_i1,aux_j1,aux_i2,aux_j2);
             
                 //CENTER SIDES
                 if(sect_b){
                     for(int x=aux_i1;x<=aux_i2;x++){
                         for(int y=aux_j1;y<=aux_j2;y++){
-                            printf("M3 %i",matrix_1[x][y]);
+                            printf("M3a %i",matrix_1[x][y]);
                             sum1+=matrix_1[x][y];
                         }
                     }
                     matrix_2[aux_i][aux_j]=sum1;
 	            }
-                //normal
-                /**/
+                
                 printf("\nMatrix 1x");
                 for(int i=0;i<n;i++){
                         printf("\n");
@@ -188,6 +255,9 @@ int main()
                 sum1=0;
                 sect_b=0;
                 sect_a=0;
+                sect_c=0;
+                sect_d=0;
+                sect_e=0;
             }
 
         }while (op!=1);
