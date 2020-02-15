@@ -8,7 +8,9 @@ int matrix_2[20][20];
 
 
 int n,m,number,aux_i,aux_j,aux_i1,aux_j1,aux_i2,aux_j2,sum=0,sum1=0,size,rule_1=0,op;
+int sect_a=0,sect_b=0;
 bool flag_1=true,flag_2,flag_3=true;
+
 
 void print();
 
@@ -108,11 +110,18 @@ int main()
                 aux_i1-=1;aux_j1-=1;
                 aux_i2+=1;aux_j2+=1;
                 printf("\nPOINT1 [%i,%i] + [%i,%i]",aux_i1,aux_j1,aux_i2,aux_j2);
+                //RULES TO KNOW IF 
                 rule_1=n;
                 rule_1-=1;
                 printf("\n aux_i2 %i rule_1 %i ",aux_i2,rule_1);
+                if(aux_i2>rule_1){//BELOW SIDE
+                    sect_a=1;
+                }
+                if(aux_i2<=rule_1){//CENTER SIDES
+                    sect_b=1;
+                }
                 //BELOW SIDE
-                if(aux_i2>rule_1){
+                if(sect_a){
                     aux_i2-=1;
                     printf("INSIDE");
                     printf("\nPOINT2 [%i,%i] + [%i,%i]",aux_i1,aux_j1,aux_i2,aux_j2);
@@ -137,14 +146,20 @@ int main()
 
                 }
 
-                //normal
-                /*for(int x=aux_i1;x<=aux_i2;x++){
-                    for(int y=aux_j1;y<=aux_j2;y++){
-                        printf("M %i",matrix_1[x][y]);
-                        sum+=matrix_1[x][y];
-                        // printf("sum %i",sum);
+                printf("\nPOINT5 [%i,%i] + [%i,%i]",aux_i1,aux_j1,aux_i2,aux_j2);
+            
+                //CENTER SIDES
+                if(sect_b){
+                    for(int x=aux_i1;x<=aux_i2;x++){
+                        for(int y=aux_j1;y<=aux_j2;y++){
+                            printf("M3 %i",matrix_1[x][y]);
+                            sum1+=matrix_1[x][y];
+                        }
                     }
-                }*/
+                    matrix_2[aux_i][aux_j]=sum1;
+	            }
+                //normal
+                /**/
                 printf("\nMatrix 1x");
                 for(int i=0;i<n;i++){
                         printf("\n");
@@ -171,6 +186,8 @@ int main()
                 aux_j=0;
                 aux_i=0;
                 sum1=0;
+                sect_b=0;
+                sect_a=0;
             }
 
         }while (op!=1);
