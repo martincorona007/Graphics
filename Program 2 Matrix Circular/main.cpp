@@ -4,14 +4,12 @@
 
 
 int matrix_1[20][20];
-int matrix_2[20][20];
-
+float matrix_2[20][20];
 
 int n,m,number,aux_i,aux_j,aux_i1,aux_j1,aux_i2,aux_j2,sum=0,sum1=0,size,rule_1=0,op;
 int aux_i3,aux_j3,aux_i4,aux_j4;//for coner left side
 int sect_a=0,sect_b=0,sect_c=0,sect_d=0,sect_e=0,sect_f=0,sect_g=0,sect_h=0,sect_i=0;
 bool flag_1=true,flag_2,flag_3=true;
-
 
 void print();
 
@@ -26,8 +24,7 @@ int main()
 
     printf("Size M ");
         scanf("%i",&m);
-    
-    
+        
     while(n<3&&m<3){//make the user insert N and M grater than 3
         printf("Error Matrix Size");
         flag_1=false;
@@ -36,8 +33,7 @@ int main()
 
         printf("Size M ");
             scanf("%i",&m);
-    
-        
+         
     }
     if(n>=3&&m>=3){//change the flag 
             flag_1=true;
@@ -45,10 +41,13 @@ int main()
     if(flag_1==true){
         int matrix_1[n][m];
         int matrix_2[n][m];
+        int data;
         //ask the data
         for(int i=0;i<n;i++){
             for(int j=0;j<m;j++){
-                 int data=rand()%50+1;
+                printf("Write for [%i,%i]= ",i,j);
+                scanf("%i",&data);
+                //data=rand()%50+1;
                 matrix_1[i][j]=data;
             }
         }
@@ -57,8 +56,7 @@ int main()
             for (int j=0; j < m; j++)
             {
             matrix_2[i][j]=0;
-            }
-            
+            }         
         }
         
         printf("\nMatrix 1");
@@ -75,12 +73,10 @@ int main()
                     printf(" [%i]{%i,%i} ",matrix_2[i][j],i,j);
                 }
             }
-        
-            
+                
         do{
           //s  printf("\nPOINT4 [%i,%i] + [%i,%i]",aux_i1,aux_j1,aux_i2,aux_j2);
-            
-            
+                  
             printf("\n\nSelect number: ");
             scanf("%i",&number);
             
@@ -123,6 +119,7 @@ int main()
                 rule_1=n;
                 rule_1-=1;
                 printf("\n aux_i2 %i rule_1 %i ",aux_i2,rule_1);
+                //SELECT THE SIDE
                 if(aux_i2>rule_1){//BELOW SIDE
                     sect_a=1;
                 }
@@ -203,8 +200,8 @@ int main()
                         x++;
                     }
                     
-                    matrix_2[aux_i][aux_j]=sum1+matrix_1[rule_1][0];
-
+                    sum1+=matrix_1[rule_1][0];
+                    matrix_2[aux_i][aux_j]=sum1/9;
                 }
                 //ABOVE LEFT SIDE CONER
                 if(sect_h){
@@ -231,7 +228,8 @@ int main()
                         x++;
                     }
                     
-                    matrix_2[aux_i][aux_j]=sum1+matrix_1[rule_1][rule_1];
+                    sum1+=matrix_1[rule_1][rule_1];
+                    matrix_2[aux_i][aux_j]=sum1/9;
                 }
                 //BELOW LEFT SIDE CONER 
                 if(sect_g){
@@ -259,8 +257,8 @@ int main()
                         x++;
                     }
                     
-                    matrix_2[aux_i][aux_j]=sum1+matrix_1[0][rule_1];
-
+                    sum1+=matrix_1[0][rule_1];
+                    matrix_2[aux_i][aux_j]=sum1/9;
                 }
                 //BELOW RIGHT SIDE CONER 
                 if(sect_f){
@@ -287,7 +285,8 @@ int main()
                         x++;
                     }
                     
-                    matrix_2[aux_i][aux_j]=sum1+matrix_1[0][0];
+                    sum1+=matrix_1[0][0];
+                    matrix_2[aux_i][aux_j]=sum1/9;
                 }
                 //LEFT SIDE
                 if(sect_e){
@@ -305,7 +304,8 @@ int main()
                         sum1+=matrix_1[i][rule_1];
                         i++;
                     }
-                    matrix_2[aux_i][aux_j]=sum1;
+                    matrix_2[aux_i][aux_j]=sum1/9;
+                    
                 }
                 //RIGHT SIDE
                 if (sect_d){
@@ -323,9 +323,8 @@ int main()
                         sum1+=matrix_1[i][0];
                         i++;
                     }
-                    matrix_2[aux_i][aux_j]=sum1;
+                    matrix_2[aux_i][aux_j]=sum1/9;
                 }
-                
                 //ABOVE SIDE
                 if (sect_c){
                     aux_i1+=1;
@@ -342,14 +341,12 @@ int main()
                         sum1+=matrix_1[rule_1][i];
                         i++;
                     }
-                    matrix_2[aux_i][aux_j]=sum1;
+                    matrix_2[aux_i][aux_j]=sum1/9;
                 }
-                
                 //BELOW SIDE
                 if(sect_a){
                     aux_i2-=1;
                     printf("\nPOINT2 [%i,%i] + [%i,%i]",aux_i1,aux_j1,aux_i2,aux_j2);
-            
                 
                     for(int x=aux_i1;x<=aux_i2;x++){
                         for(int y=aux_j1;y<=aux_j2;y++){
@@ -366,12 +363,10 @@ int main()
                         sum1+=matrix_1[0][i];
                         i++;
                     }
-                    matrix_2[aux_i][aux_j]=sum1;
+                    matrix_2[aux_i][aux_j]=sum1/9;
 
                 }
-
             //    printf("\nPOINT5 [%i,%i] + [%i,%i]",aux_i1,aux_j1,aux_i2,aux_j2);
-            
                 //CENTER SIDES
                 if(sect_b){
                     for(int x=aux_i1;x<=aux_i2;x++){
@@ -380,7 +375,7 @@ int main()
                             sum1+=matrix_1[x][y];
                         }
                     }
-                    matrix_2[aux_i][aux_j]=sum1;
+                    matrix_2[aux_i][aux_j]=sum1/9;
 	            }
                 
                 printf("\nMatrix 1x");
@@ -401,10 +396,9 @@ int main()
             
             }
 
-
             printf("\n\nSelect 1 to finish 0 to cotinue: ");
             scanf("%i",&op);
-            if(op==0){
+            if(op==0){//CLEAN DATA
                 flag_3=true;
                 aux_j=0;
                 aux_i=0;
@@ -421,11 +415,6 @@ int main()
             }
 
         }while (op!=1);
-        
-        
-
-
-        
     }
     return 0;
 }
