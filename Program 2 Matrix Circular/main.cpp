@@ -8,7 +8,8 @@ int matrix_2[20][20];
 
 
 int n,m,number,aux_i,aux_j,aux_i1,aux_j1,aux_i2,aux_j2,sum=0,sum1=0,size,rule_1=0,op;
-int sect_a=0,sect_b=0,sect_c=0,sect_d=0,sect_e=0;
+int aux_i3,aux_j3,aux_i4,aux_j4;//for coner left side
+int sect_a=0,sect_b=0,sect_c=0,sect_d=0,sect_e=0,sect_f=0,sect_g=0,sect_h=0,sect_i=0;
 bool flag_1=true,flag_2,flag_3=true;
 
 
@@ -105,8 +106,16 @@ int main()
                 printf("Number not found");
             }else if(flag_2==true){
                 printf("out [%i,%i]",aux_i,aux_j);
+                
+                aux_i3=aux_i4=aux_i;
+                aux_j3=aux_j4=aux_j;
+                
+                aux_i3-=1;aux_j3+=1;
+                aux_i4+=1;aux_j4-=1;
+
                 aux_i1=aux_i2=aux_i;
                 aux_j1=aux_j2=aux_j;
+
                 aux_i1-=1;aux_j1-=1;
                 aux_i2+=1;aux_j2+=1;
                 printf("\nPOINT1 [%i,%i] + [%i,%i]",aux_i1,aux_j1,aux_i2,aux_j2);
@@ -132,6 +141,153 @@ int main()
                 if(aux_j1<0){//LEFT SIDE
                     sect_e=1;
                     sect_b=0;
+                }
+                if(aux_i2>rule_1&&aux_j2>rule_1){//BELOW RIGHT SIDE CONER 
+                    sect_f=1;
+                    sect_b=0;
+                    sect_d=0;
+                    sect_a=0;
+                }
+                if(aux_i4>rule_1&&aux_j4<0){//BELOW LEFT SIDE CONER 
+                    sect_g=1;
+                    sect_f=0;
+                    sect_b=0;
+                    sect_d=0;
+                    sect_a=0;
+                    sect_e=0;
+                }
+                if(aux_i1<0&& aux_j1<0){//ABOVE LEFT SIDE CONER
+                    sect_h=1;
+                    sect_g=0;
+                    sect_f=0;
+                    sect_b=0;
+                    sect_d=0;
+                    sect_a=0;
+                    sect_e=0;
+                    sect_c=0;
+                }
+                if(aux_i3<0&& aux_j3>rule_1){//ABOVE RIGHT SIDE CONER
+                    sect_i=1;
+                    sect_h=0;
+                    sect_g=0;
+                    sect_f=0;
+                    sect_b=0;
+                    sect_d=0;
+                    sect_a=0;
+                    sect_e=0;
+                    sect_c=0;
+                }
+                //ABOVE RIGHT SIDE CONER
+                if(sect_i){
+                    aux_i3+=1;
+                    aux_j3-=2;
+                    aux_j4+=1;
+                    for(int x=aux_i3;x<=aux_i4;x++){
+                        for(int y=aux_j3;y<=aux_j4;y++){
+                            printf("M10a >%i< {%i,%i}",matrix_1[x][y],x,y);
+                            sum1+=matrix_1[x][y];
+                        }
+                    }
+                    int i=0;
+                    while (i<=aux_i4)
+                    {
+                        printf("M10b >%i< {%i,%i}",matrix_1[i][0],i,0);
+                        sum1+=matrix_1[i][0];
+                        i++;
+                    }
+                    int x=aux_j3;
+                    while (x<=rule_1)
+                    {
+                        printf("M10c >%i< {%i,%i}",matrix_1[rule_1][x],rule_1,x);
+                        sum1+=matrix_1[rule_1][x];
+                        x++;
+                    }
+                    
+                    matrix_2[aux_i][aux_j]=sum1+matrix_1[rule_1][0];
+
+                }
+                //ABOVE LEFT SIDE CONER
+                if(sect_h){
+                    aux_i1+=1;
+                    aux_j1+=1;
+                    for(int x=aux_i1;x<=aux_i2;x++){
+                        for(int y=aux_j1;y<=aux_j2;y++){
+                            printf("M9a >%i< {%i,%i}",matrix_1[x][y],x,y);
+                            sum1+=matrix_1[x][y];
+                        }
+                    }
+                    int i=0;
+                    while (i<=aux_j2)
+                    {
+                        printf("M9b >%i< {%i,%i}",matrix_1[rule_1][i],rule_1,i);
+                        sum1+=matrix_1[rule_1][i];
+                        i++;
+                    }
+                    int x=0;
+                    while (x<=aux_j2)
+                    {
+                        printf("M9c >%i< {%i,%i}",matrix_1[x][rule_1],x,rule_1);
+                        sum1+=matrix_1[x][rule_1];
+                        x++;
+                    }
+                    
+                    matrix_2[aux_i][aux_j]=sum1+matrix_1[rule_1][rule_1];
+                }
+                //BELOW LEFT SIDE CONER 
+                if(sect_g){
+                    aux_j3-=1;
+                    aux_i4-=1;
+                    aux_j4+=2;
+                    for(int x=aux_i3;x<=aux_i4;x++){
+                        for(int y=aux_j3;y<=aux_j4;y++){
+                            printf("M8a >%i< {%i,%i}",matrix_1[x][y],x,y);
+                            sum1+=matrix_1[x][y];
+                        }
+                    }
+                    int i=0;
+                    while (i<=aux_j4)
+                    {
+                        printf("M8b >%i< {%i,%i}",matrix_1[0][i],0,i);
+                        sum1+=matrix_1[0][i];
+                        i++;
+                    }
+                    int x=aux_i3;
+                    while (x<=rule_1)
+                    {
+                        printf("M8c >%i< {%i,%i}",matrix_1[x][rule_1],x,rule_1);
+                        sum1+=matrix_1[x][rule_1];
+                        x++;
+                    }
+                    
+                    matrix_2[aux_i][aux_j]=sum1+matrix_1[0][rule_1];
+
+                }
+                //BELOW RIGHT SIDE CONER 
+                if(sect_f){
+                    aux_i2-=1;
+                    aux_j2-=1;
+                    for(int x=aux_i1;x<=aux_i2;x++){
+                        for(int y=aux_j1;y<=aux_j2;y++){
+                            printf("M7a >%i< {%i,%i}",matrix_1[x][y],x,y);
+                            sum1+=matrix_1[x][y];
+                        }
+                    }
+                    int i=aux_i1;
+                    while (i<=rule_1)
+                    {
+                        printf("M7b >%i< {%i,%i}",matrix_1[i][0],i,0);
+                        sum1+=matrix_1[i][0];
+                        i++;
+                    }
+                    int x=aux_j1;
+                    while (x<=rule_1)
+                    {
+                        printf("M7c >%i< {%i,%i}",matrix_1[0][x],0,x);
+                        sum1+=matrix_1[0][x];
+                        x++;
+                    }
+                    
+                    matrix_2[aux_i][aux_j]=sum1+matrix_1[0][0];
                 }
                 //LEFT SIDE
                 if(sect_e){
@@ -258,6 +414,10 @@ int main()
                 sect_c=0;
                 sect_d=0;
                 sect_e=0;
+                sect_f=0;
+                sect_g=0;
+                sect_h=0;
+                sect_i=0;
             }
 
         }while (op!=1);
