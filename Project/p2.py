@@ -1,6 +1,6 @@
 from matplotlib import pyplot as plt
 import math
-#==============MATRIX A 
+#==============MATRIX A==============
 #Create matrix A and initialate the matrix with 0 and 1
 n1 = n = 3
 a = [[0] * n for i in range(n)]
@@ -16,8 +16,8 @@ for i in range(n):
 for row in a:
     print(' '.join([str(elem) for elem in row]))
 """
-print("Hello Future")
-#==============MATRIX B
+print("Rotation")
+#==============MATRIX B==============
 #Create the matrix B and initialate the matrix with 1
 n2 = r = 3
 m2 = c = 1
@@ -30,9 +30,10 @@ for i in range(r):
 for row in b:
     print(row);
 """
-#==============ASK DATA 
+#==============ASK DATA============== 
 #Px=6
 #Py=1
+print("Enter Point ")
 Px=int(input("Enter Px number: "))
 Py=int(input("Enter Py number: "))
 b[0][0]=Px
@@ -46,19 +47,19 @@ a[1][0]=round(math.sin(math.radians(ro)),2)
 a[1][1]=round(math.cos(math.radians(ro)),2)
 ##NOTE
 #When I use the function round, it only takes the two decimal numbers and add 1
-#==============PRINT
+#==============PRINT==============
 print("Matrix A")
 for row in a:
     print(' '.join([str(elem) for elem in row]))
 print("Matrix B")
 for row in b:
     print(row);
-#===MATRIX RESULT
+#==============MATRIX RESULT==============
 c1=m2
 r1=n1
 result_array=[ [0] * c1 for i in range(r1)]
 
-#===OPERATION
+#==============OPERATION==============
 for i in range(n1):
     for j in range(m2):
         for x in range(n1):
@@ -68,7 +69,7 @@ print("Result")
 for row in result_array:
     print(row);
 
-#Graph
+#==============Graph==============
 xx1=[0,Px]
 yy1=[0,Py]
 xx2=[0,result_array[0][0]]

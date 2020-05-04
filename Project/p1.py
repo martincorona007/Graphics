@@ -1,5 +1,5 @@
 from matplotlib import pyplot as plt
-#===MATRIX A 
+#==============MATRIX A ==============
 #Create matrix A and initialate the matrix with 0 and 1
 n1 = n = 3
 a = [[0] * n for i in range(n)]
@@ -15,8 +15,8 @@ for i in range(n):
 for row in a:
     print(' '.join([str(elem) for elem in row]))
 """
-print("Hello Future")
-#===MATRIX B
+print("Traslation")
+#==============MATRIX B==============
 #Create the matrix B and initialate the matrix with 1
 n2 = r = 3
 m2 = c = 1
@@ -29,10 +29,10 @@ for i in range(r):
 for row in b:
     print(row);
 """
-#==ASK DATA 
+#==============ASK DATA============== 
 #Px=4
 #Py=1
-
+print("Enter Point")
 Px=int(input("Enter Px number: "))
 Py=int(input("Enter Py number: "))
 b[0][0]=Px
@@ -45,7 +45,7 @@ ty=int(input("Enter ty number: "))
 #ty=2
 a[0][2]=tx
 a[1][2]=ty
-#==PRINT
+#==============PRINT==============
 print("Matrix A")
 for row in a:
     print(' '.join([str(elem) for elem in row]))
@@ -53,12 +53,12 @@ print("Matrix B")
 for row in b:
     print(row);
 
-#===MATRIX RESULT
+#==============MATRIX RESULT==============
 c1=m2
 r1=n1
 result_array=[ [0] * c1 for i in range(r1)]
 
-#===OPERATION
+#==============OPERATION==============
 for i in range(n1):
     for j in range(m2):
         for x in range(n1):
@@ -68,7 +68,7 @@ print("Result")
 for row in result_array:
     print(row);
 
-#Graph
+#==============Graph==============
 plt.plot(Px,Py, marker="o", color="red")
 plt.plot(result_array[0][0],result_array[1][0], marker="D", color="blue")
 plt.title("Traslation")
