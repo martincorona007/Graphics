@@ -34,8 +34,8 @@ for row in b:
 #Px=6
 #Py=1
 print("Enter Point ")
-Px=int(input("Enter Px number: "))
-Py=int(input("Enter Py number: "))
+Px=float(input("Enter Px number: "))
+Py=float(input("Enter Py number: "))
 b[0][0]=Px
 b[1][0]=Py   
 
