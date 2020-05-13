@@ -63,16 +63,16 @@ for row in b:
 #==============ASK DATA ==============
 print("Escalation")
 print("Insert Point 1 P1")
-Px1=int(input("Enter Px number: "))
-Py1=int(input("Enter Py number: "))
+Px1=float(input("Enter Px number: "))
+Py1=float(input("Enter Py number: "))
 
 print("Insert Point 2 P2")
-Px2=int(input("Enter Px number: "))
-Py2=int(input("Enter Py number: "))
+Px2=float(input("Enter Px number: "))
+Py2=float(input("Enter Py number: "))
 
 print("Insert Values Sx and Sy")
-k=Sx=int(input("Enter Sx number: "))
-k1=Sy=int(input("Enter Sy number: "))
+k=Sx=float(input("Enter Sx number: "))
+k1=Sy=float(input("Enter Sy number: "))
 """
 Px1=1
 Py1=1
