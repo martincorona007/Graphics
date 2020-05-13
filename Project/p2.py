@@ -1,7 +1,7 @@
 from matplotlib import pyplot as plt
 import math
 #==============MATRIX A==============
-#Create matrix A and initialate the matrix with 0 and 1
+#Create matrix A and initialate the matrix with 0 and 1, n1 & n is the  rows
 n1 = n = 3
 a = [[0] * n for i in range(n)]
 for i in range(n):
@@ -19,8 +19,8 @@ for row in a:
 print("Rotation")
 #==============MATRIX B==============
 #Create the matrix B and initialate the matrix with 1
-n2 = r = 3
-m2 = c = 1
+n2 = r = 3#rows
+m2 = c = 1#columns
 
 b = [[0] * c for i in range(r)]
 for i in range(r):
@@ -55,11 +55,12 @@ print("Matrix B")
 for row in b:
     print(row);
 #==============MATRIX RESULT==============
+#create the matrix result
 c1=m2
 r1=n1
 result_array=[ [0] * c1 for i in range(r1)]
 
-#==============OPERATION==============
+#==============OPERATION multiplication==============
 for i in range(n1):
     for j in range(m2):
         for x in range(n1):
@@ -70,20 +71,21 @@ for row in result_array:
     print(row);
 
 #==============Graph==============
+#mark points and lines
 xx1=[0,Px]
 yy1=[0,Py]
 xx2=[0,result_array[0][0]]
 yy2=[0,result_array[1][0]]
 yy=[0,result_array[1][0]]
 
-plt.plot(Px,Py, marker="o", color="red")
-plt.plot(xx1,yy1, marker="+", color="red")
-plt.plot(result_array[0][0],result_array[1][0], marker="D", color="blue")
-plt.plot(xx2,yy2, marker="+", color="blue")
+plt.plot(Px,Py, marker="o", color="red")#mark the point
+plt.plot(xx1,yy1, marker="+", color="red")#mark the line 
+plt.plot(result_array[0][0],result_array[1][0], marker="D", color="blue")#mark the point
+plt.plot(xx2,yy2, marker="+", color="blue")#mark the line
 
 plt.title("Rotation")
-plt.yticks([i for i in range(-10,11)]) 
-plt.xticks([i for i in range(-10,11)]) 
+plt.yticks([i for i in range(-10,11)]) #set size to the cartesian plan
+plt.xticks([i for i in range(-10,11)]) #set size to the cartesian plan
 plt.axhline(0, color='black')
 plt.axvline(0, color='black')
 plt.xlabel("X")

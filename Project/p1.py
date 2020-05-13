@@ -1,6 +1,6 @@
 from matplotlib import pyplot as plt
 #==============MATRIX A ==============
-#Create matrix A and initialate the matrix with 0 and 1
+#Create matrix A and initialate the matrix with 0 and 1, n1 & n is the  rows
 n1 = n = 3
 a = [[0] * n for i in range(n)]
 for i in range(n):
@@ -18,8 +18,8 @@ for row in a:
 print("Traslation")
 #==============MATRIX B==============
 #Create the matrix B and initialate the matrix with 1
-n2 = r = 3
-m2 = c = 1
+n2 = r = 3#rows
+m2 = c = 1#columns
 
 b = [[0] * c for i in range(r)]
 for i in range(r):
@@ -54,11 +54,12 @@ for row in b:
     print(row);
 
 #==============MATRIX RESULT==============
+#create the matrix result
 c1=m2
 r1=n1
 result_array=[ [0] * c1 for i in range(r1)]
 
-#==============OPERATION==============
+#==============OPERATION multiplication==============
 for i in range(n1):
     for j in range(m2):
         for x in range(n1):
@@ -69,14 +70,14 @@ for row in result_array:
     print(row);
 
 #==============Graph==============
-plt.plot(Px,Py, marker="o", color="red")
-plt.plot(result_array[0][0],result_array[1][0], marker="D", color="blue")
+plt.plot(Px,Py, marker="o", color="red")#mark point px and py
+plt.plot(result_array[0][0],result_array[1][0], marker="D", color="blue") #mark the result point
 plt.title("Traslation")
-plt.yticks([i for i in range(-20,21)]) 
-plt.xticks([i for i in range(-20,21)]) 
-plt.axhline(0, color='black')
-plt.axvline(0, color='black')
-plt.quiver(result_array[0][0],result_array[1][0], angles='xy', scale_units='xy', scale=1,color="blue")
+plt.yticks([i for i in range(-20,21)]) #set size to the cartesian plan
+plt.xticks([i for i in range(-20,21)]) #set size to the cartesian plan
+plt.axhline(0, color='black') #draw color black in the cartesian plan
+plt.axvline(0, color='black')#draw color black in the cartesian plan
+plt.quiver(result_array[0][0],result_array[1][0], angles='xy', scale_units='xy', scale=1,color="blue")#draw a row
 plt.xlabel("X")
 plt.ylabel("Y")
 

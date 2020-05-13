@@ -1,7 +1,7 @@
 from matplotlib import pyplot as plt
 import math
 #==============MATRIX A ==============
-#Create matrix A and initialate the matrix with 0 and 1
+#Create matrix A and initialate the matrix with 0 and 1, n1 & n is the  rows
 n1 = n = 3
 a = [[0] * n for i in range(n)]
 for i in range(n):
@@ -19,8 +19,8 @@ for row in a:
 
 #==============MATRIX B ==============
 #Create the matrix B and initialate the matrix with 1
-n2 = r = 3
-m2 = c = 1
+n2 = r = 3#rows
+m2 = c = 1#columns
 
 b = [[0] * c for i in range(r)]
 for i in range(r):
@@ -31,7 +31,7 @@ for row in b:
     print(row);
 """
 #==============MATRIX C ==============
-#Create matrix A and initialate the matrix with 0 and 1
+#Create matrix A and initialate the matrix with 0 and 1, n3 & n4 is the  rows
 n3 = n4 = 3
 c = [[0] * n4 for i in range(n4)]
 for i in range(n4):
@@ -49,8 +49,8 @@ for row in a:
 
 #==============MATRIX D==============
 #Create the matrix B and initialate the matrix with 1
-n3 = r1 = 3
-m3 = c1 = 1
+n3 = r1 = 3#rows
+m3 = c1 = 1#columns
 
 d = [[0] * c1 for i in range(r1)]
 for i in range(r1):
@@ -99,11 +99,13 @@ d[1][0]=Py2
 
 
 #==============MATRIX RESULT 1==============
+#create the matrix result
 c1=m2
 r1=n1
 result_array=[ [0] * c1 for i in range(r1)]
 
 #==============MATRIX RESULT 2==============
+#create the matrix result
 cc1=m3
 rr1=n3
 result_array1=[ [0] * cc1 for i in range(rr1)]
@@ -143,16 +145,17 @@ for row in result_array1:
     print(row);
 
 #=============Graph==============
-xx1=[Px1,Px2]
-yy1=[Py1,Py2]
+#mark points and lines
+xx1=[Px1,Px2]#Point 1 px py
+yy1=[Py1,Py2]#Point 2 px py
 
-xx2=[result_array[0][0],result_array1[0][0]]
-yy2=[result_array[1][0],result_array1[1][0]]
-plt.plot(xx1,yy1, marker="o", color="red")
-plt.plot(xx2,yy2, marker="o", color="blue")
+xx2=[result_array[0][0],result_array1[0][0]]#result matrix
+yy2=[result_array[1][0],result_array1[1][0]]#result matrix
+plt.plot(xx1,yy1, marker="o", color="red")#graph the point px and py 
+plt.plot(xx2,yy2, marker="o", color="blue")#graph the point 'px and 'py
 plt.title("Escalation")
-plt.yticks([i for i in range(-15,16)]) 
-plt.xticks([i for i in range(-15,16)])
+plt.yticks([i for i in range(-15,16)]) #set size to the cartesian plan
+plt.xticks([i for i in range(-15,16)])#set size to the cartesian plan
 plt.axhline(0, color='black')
 plt.axvline(0, color='black') 
 plt.xlabel("X")
