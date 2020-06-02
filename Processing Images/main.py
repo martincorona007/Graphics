@@ -160,6 +160,51 @@ for itx in range(n):
             sect_a=0
             sect_e=0
             sect_c=0
+        #LEFT SIDE
+        if sect_e == 1:
+            aux_j1+=1
+            x=aux_i1
+            y=aux_j1
+            while x<=aux_i2:
+                while y<=aux_j2:
+                    sum1+=matrix_1[x][y]
+                    y = y + 1
+                x = x + 1
+            i4=aux_i1
+            while i4<=aux_i2:
+                sum1+=matrix_1[i4][rule_1]
+                i4 = i4 + 1
+            matrix_2[aux_i][aux_j]=sum1
+        #RIGHT SIDE
+        if sect_d == 1:
+            aux_j2-=1
+            x=aux_i1
+            y=aux_j1
+            while x<=aux_i2:
+                while y<=aux_j2:
+                    sum1=matrix_1[x][y]
+                    y = y + 1
+                x = x + 1
+            i3=aux_i1
+            while i3<=aux_i2:
+                sum1+=matrix_1[i3][0]
+                i3 = i3 + 1
+            matrix_2[aux_i][aux_j]=sum1 
+        #ABOVE SIDE
+        if sect_c == 1:
+            aux_i1+=1
+            x=aux_i1
+            y=aux_j1
+            while x<=aux_i2:
+                while y<=aux_j2:
+                    sum1+=matrix_1[x][y]
+                    y = y + 1   
+                x = x + 1
+            i2=aux_j1
+            while i2<=aux_j2:
+                sum1+=matrix_1[rule_1][i2]
+                i2 = i2 + 1
+            matrix_2[aux_i][aux_j]=sum1
         #BELOW SIDE
         if sect_a == 1:
             aux_i2-=1
