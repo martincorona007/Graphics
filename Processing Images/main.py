@@ -25,24 +25,12 @@ b,g,r=cv2.split(img)
 img=cv2.merge((b,g,r))
 print(img[0,1])
 """
-from matplotlib import pyplot as plt
+#from matplotlib import pyplot as plt
 import random
-#--------VARIABLES
-"""aux_i=0
-aux_j=0
-aux_i1=0
-aux_j1=0
-aux_i2=0
-aux_j2=0
-"""
+
 sum1=0
 rule_1=0
-"""
-aux_i3=0
-aux_j3=0
-aux_i4=0
-aux_j4=0
-"""
+
 sect_a=0
 sect_b=0
 sect_c=0
@@ -55,7 +43,7 @@ sect_i=0
 #--------FUNCTIONS
 #
 def print_mc():
-    for row in a:
+    for row in matrix_convolution:
         print(' '.join([str(elem) for elem in row]))
     print("\n")
 
@@ -67,18 +55,42 @@ def print_m2():
     for row in matrix_2:
         print(' '.join([str(elem) for elem in row]))
     print("\n")
-"""
+def print_mk():
+    for row in matrix_pre:
+        print(' '.join([str(elem) for elem in row]))
+    print("\n")
 
 print("Matrix 3 x 3")
+
 n=3
-a = [[0] * n for i in range(n)]
+matrix_convolution = [[0] * n for i in range(n)]
+matrix_pre = [[0] * n for i in range(n)]#save fraction
 #FUNCTIONS
 #Fill the matrix
+anw=int(input("Any average? yes=1 no=0 "))
+if anw == 1:
+    numerator=int(input("Numerator: "))
+    denominator=int(input("Denominator: "))
+    frac=numerator/denominator
+    lc=round(frac,2)#get the precision after the decimal point.
+    #lc=frac
+else:
+    lc=1
+
 for i in range(n):
     for j in range(n):
-        a[i][j]=int(input("Enter number: "))
+        matrix_pre[i][j]=lc
+print_mk()
+for i in range(n):
+    for j in range(n):
+        matrix_convolution[i][j]=int(input("Enter number: "))
         print_mc()
-"""
+for i in range(n):
+    for j in range(n):
+        matrix_convolution[i][j]=matrix_pre[i][j]*(matrix_convolution[i][j])
+print_mc()
+
+
 n=5
 matrix_1=[[0]* n for i in range(n)]
 matrix_2=[[0]* n for i in range(n)]
@@ -236,7 +248,6 @@ for itx in range(n):
             sect_e=0
             sect_c=0
         #ABOVE RIGHT SIDE CONER
-        
         if sect_i == 1:
             aux_i3+=1
             aux_j3-=2
@@ -263,10 +274,8 @@ for itx in range(n):
                 #print("==========="+str(sum1))
                 xr3 = xr3 + 1
             sum1+=matrix_1[rule_1][0]
-            matrix_2[aux_i][aux_j]=sum1
-        
+            matrix_2[aux_i][aux_j]=sum1 
         #ABOVE LEFT SIDE CONER
-        
         if sect_h == 1:
             aux_i1+=1
             aux_j1+=1
@@ -293,8 +302,7 @@ for itx in range(n):
                 xr2 = xr2 + 1 
             sum1+=matrix_1[rule_1][rule_1]
            # print("==========="+str(sum1))
-            matrix_2[aux_i][aux_j]=sum1
-        
+            matrix_2[aux_i][aux_j]=sum1       
         #BELOW LEFT SIDE CONER      
         if sect_g == 1:
             aux_j3-=1
