@@ -26,7 +26,8 @@ img=cv2.merge((b,g,r))
 print(img[0,1])
 """
 #from matplotlib import pyplot as plt
-import random
+import cv2
+img=cv2.imread('pk.PNG')
 
 sum1=0
 rule_1=0
@@ -43,6 +44,7 @@ sect_i=0
 #--------FUNCTIONS
 #
 def print_mc():
+    print("Convolution Mask")
     for row in matrix_convolution:
         print(' '.join([str(elem) for elem in row]))
     print("\n")
@@ -56,6 +58,7 @@ def print_m2():
         print(' '.join([str(elem) for elem in row]))
     print("\n")
 def print_mk():
+    
     for row in matrix_pre:
         print(' '.join([str(elem) for elem in row]))
     print("\n")
@@ -76,11 +79,15 @@ if anw == 1:
     #lc=frac
 else:
     lc=1
-
+"""
+The [matrix_pre] is to get a float number and multiple it by the original convolution mask[matrix_convolution].
+"""
 for i in range(n):
     for j in range(n):
         matrix_pre[i][j]=lc
+
 print_mk()
+
 for i in range(n):
     for j in range(n):
         matrix_convolution[i][j]=int(input("Enter number: "))
@@ -88,16 +95,19 @@ for i in range(n):
 for i in range(n):
     for j in range(n):
         matrix_convolution[i][j]=matrix_pre[i][j]*(matrix_convolution[i][j])
+
 print_mc()
 
 
 n=5
-matrix_1=[[0]* n for i in range(n)]
-matrix_2=[[0]* n for i in range(n)]
+matrix_1=[[0]* n for i in range(n)]#Get the Source pixel 
+
+#matrix_2=[[0]* n for i in range(n)]
 """
 for i in range(0,n,1):
     for j in range(0,n,1):
         matrix_1[i][j]=random.randint(1,40)
+"""
 """
 matrix_1[0][0]=13
 matrix_1[0][1]=24
@@ -124,6 +134,7 @@ matrix_1[4][1]=2
 matrix_1[4][2]=25
 matrix_1[4][3]=2
 matrix_1[4][4]=30
+"""
 for itx in range(n):
     for ity in range(n):
         aux_i=itx
@@ -274,11 +285,12 @@ for itx in range(n):
                 #print("==========="+str(sum1))
                 xr3 = xr3 + 1
             sum1+=matrix_1[rule_1][0]
-            matrix_2[aux_i][aux_j]=sum1 
+          #  matrix_2[aux_i][aux_j]=sum1 
         #ABOVE LEFT SIDE CONER
         if sect_h == 1:
             aux_i1+=1
             aux_j1+=1
+            #A
             for x in range(aux_i1,aux_i2+1,):
                for y in range(aux_j1,aux_j2+1,):
                   #  print("Ma m "+str(matrix_1[x][y])+" x "+str(x)+" y "+str(y))
@@ -287,22 +299,24 @@ for itx in range(n):
                     
                # print("==========="+str(sum1))
               #  print("APK aux_i1 "+str(aux_i1)+" aux_j1 "+str(aux_j1)+" aux_i2 "+str(aux_i2)+" aux_j2 "+str(aux_j2)) 
-        
+            #B
             i7=0
             while i7<=aux_j2:
                 #print("Mb m "+str(matrix_1[rule_1][i7])+" x "+str(rule_1)+" y "+str(i7))
                 sum1+=matrix_1[rule_1][i7]
                 #print("==========="+str(sum1))
                 i7 = i7 + 1
+            #C
             xr2=0
             while xr2<=aux_j2:
                 #print("Mc m "+str(matrix_1[xr2][aux_j2])+" x "+str(xr2)+" y "+str(aux_j2))
                 sum1+=matrix_1[xr2][rule_1]
                 #print("==========="+str(sum1))
-                xr2 = xr2 + 1 
+                xr2 = xr2 + 1
+            #D 
             sum1+=matrix_1[rule_1][rule_1]
            # print("==========="+str(sum1))
-            matrix_2[aux_i][aux_j]=sum1       
+           # matrix_2[aux_i][aux_j]=sum1       
         #BELOW LEFT SIDE CONER      
         if sect_g == 1:
             aux_j3-=1
@@ -329,7 +343,7 @@ for itx in range(n):
                 it3 = it3 + 1
             sum1+=matrix_1[0][rule_1]
             #print("==========="+str(sum1))
-            matrix_2[aux_i][aux_j]=sum1
+           # matrix_2[aux_i][aux_j]=sum1
         #BELOW RIGHT SIDE CONER
         if sect_f == 1:
             aux_i2-=1
@@ -352,7 +366,7 @@ for itx in range(n):
                 sum1+=matrix_1[0][xr]
                 xr = xr + 1
             sum1+=matrix_1[0][0]
-            matrix_2[aux_i][aux_j]=sum1
+          #  matrix_2[aux_i][aux_j]=sum1
         #LEFT SIDE 
         if sect_e == 1:
             aux_j1+=1
@@ -371,7 +385,7 @@ for itx in range(n):
                 sum1+=matrix_1[i4][rule_1]
                 #print("==========="+str(sum1))
                 i4 = i4 + 1
-            matrix_2[aux_i][aux_j]=sum1
+           # matrix_2[aux_i][aux_j]=sum1
         #RIGHT SIDE
         if sect_d == 1:
             aux_j2-=1
@@ -390,7 +404,7 @@ for itx in range(n):
                 sum1+=matrix_1[i3][0]
                 #print("==========="+str(sum1))
                 i3 = i3 + 1
-            matrix_2[aux_i][aux_j]=sum1 
+           # matrix_2[aux_i][aux_j]=sum1 
         #ABOVE SIDE
         if sect_c == 1:
             aux_i1+=1
@@ -424,7 +438,7 @@ for itx in range(n):
             while ii<=aux_j2:
                 sum1+=matrix_1[0][ii]
                 ii = ii + 1
-            matrix_2[aux_i][aux_j]=sum1
+            #matrix_2[aux_i][aux_j]=sum1
         #CENTER SIDE
         #print("out==========="+str(aux_i2))
         if sect_b == 1:
@@ -441,7 +455,7 @@ for itx in range(n):
                # print("==========="+str(sum1))
               #  print("APK aux_i1 "+str(aux_i1)+" aux_j1 "+str(aux_j1)+" aux_i2 "+str(aux_i2)+" aux_j2 "+str(aux_j2)) 
         
-            matrix_2[aux_i][aux_j]=sum1
+            #matrix_2[aux_i][aux_j]=sum1
             
            # 
             
@@ -459,8 +473,11 @@ for itx in range(n):
             sect_h=0
             sect_i=0
 
-print_m1()
-print_m2()
+#print_m1()
+#print_m2()
+#print(type(matrix_1))
+#print(type(matrix_2))
+
 """
 [      ,      ][      ,      ][      ,      ][aux_i3,aux_j3][      ,      ]
 [      ,      ][      ,      ][ aux_i,aux_j ][      ,      ][      ,      ]

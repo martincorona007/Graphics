@@ -3,13 +3,15 @@ import numpy
 import imageio
 import matplotlib.pyplot as plt
 from skimage.io import imshow,show,imread,imsave
-
 """
 from PIL import Image as img
-im = img.open('p7.png')
+im = img.open('pk.PNG')
 pixels = list(im.getdata())
-print(pixels)"""
+print(pixels)
+print(len(pixels))
 """
+"""
+
 import scipy.misc
 im = scipy.misc.imread('um_000000.png', flatten=False, mode='RGB')
 print(im.shape)
@@ -18,6 +20,17 @@ for y in range(im.shape[0]):
         color = tuple(im[y][x])
         r, g, b = color
 """
+import cv2
+img=cv2.imread('pk.PNG')
+#outPutImg=img.shape
+for x in range(img.shape[0]):
+    for y in range(img.shape[1]):
+        color = tuple(img[x][y])
+        r, g, b = color
+        print("\n<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(x)+","+str(y)+"]")
+print(type(img))
+print(type(color))
+
 """
 def getPixels(filename):
     img = Image.open(filename, 'r')
@@ -30,10 +43,11 @@ print(getPixels('p7.png'))
 """
 
 #++++++++++++++++++++++++++++++
+"""
 import cv2
 import numpy as np
-img=cv2.imread('p4.jpg')
-"""
+img=cv2.imread('pk.PNG')
+
 b,g,r=cv2.split(img)
 img=cv2.merge((b,g,r))
 print(img)
@@ -45,15 +59,20 @@ print(img.shape[1])
 print("=====")
 print(img[0,0,0])
 print(img[0,0,0])
+print(img.dtype)
 """
 #print(img[img[0,0]])
-
+"""
 #open the original image
 pic = imageio.imread('p4.jpg')
 imshow(pic,'matplotlib')
 show()
+
 #save the image modified 
 imsave("/home/alien/Documents/GitHub/Graphics/Processing Images/test_pics/new_1.jpg",pic)
+print(pic.dtype)
+print(img.dtype)
+"""
 """
 import os
 
