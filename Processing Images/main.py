@@ -434,7 +434,7 @@ def save_pixelsbA(R,G,B,doc):
             if doc==1:
                 if control==1:
                     matrix_savePixel[xrt][yrt]=R
-                if control==2:
+                if controlprint("\n")==2:
                     matrix_savePixel[xrt][yrt]=G
                 if control==3:
                     matrix_savePixel[xrt][yrt]=B
