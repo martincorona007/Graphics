@@ -22,6 +22,7 @@ matrix_convolution = [[0] * n for i in range(n)]
 matrix_pre = [[0] * n for i in range(n)]#save fraction
 #FUNCTIONS
 #Fill the matrix
+
 anw=int(input("Any average? yes=1 no=0 "))
 if anw == 1:
     numerator=int(input("Numerator: "))
@@ -31,6 +32,13 @@ if anw == 1:
     #lc=frac
 else:
     lc=1
+anws=int(input("Do you want bias? yes=1 no=0 "))
+if anws==1:
+    bias=1
+    anwsr=int(input("Number bias: "))
+    biasv=anwsr
+else:
+    bias=0
 """
 The [matrix_pre] is to get a float number and multiple it by the original convolution mask[matrix_convolution].
 """
@@ -62,110 +70,7 @@ def print_mc():
 
 
 #print_mc()
-control=1
-for ixt in range(1,3):
-    for iyt in range(3,9):
-        #print(" ixt "+str(ixt)+" iyt "+str(iyt))
-        if 1==control:
-            #print("s1")
-            matrix_savePixel[ixt][iyt]=1
-        if 2==control:
-            #print("s2")
-            matrix_savePixel[ixt][iyt]=2
-        if 3==control:
-            #print("s3")
-            matrix_savePixel[ixt][iyt]=3
-        if 4==control:
-            #print("s1")
-            matrix_savePixel[ixt][iyt]=1
-        if 5==control:
-            #print("s2")
-            matrix_savePixel[ixt][iyt]=2
-        if 6==control:
-            #print("s3")
-            matrix_savePixel[ixt][iyt]=3
-        if 7==control:
-            #print("s1")
-            matrix_savePixel[ixt][iyt]=1
-        if 8==control:
-            #print("s2")
-            matrix_savePixel[ixt][iyt]=2
-        if 9==control:
-            #print("s3")
-            matrix_savePixel[ixt][iyt]=3
-        if 10==control:
-            #print("s1")
-            matrix_savePixel[ixt][iyt]=1
-        if 11==control:
-            #print("s2")
-            matrix_savePixel[ixt][iyt]=2
-        if 12==control:
-            #print("s3")
-            matrix_savePixel[ixt][iyt]=3
-        control = control + 1    
-        #matrix_savePixel[ixt][iyt]=1
 
-#print_mc()
-
-for ixt1 in range(3,9):
-    if 13==control:
-            #print("s1")
-        matrix_savePixel[0][ixt1]=1
-    if 14==control:
-            #print("s2")
-        matrix_savePixel[0][ixt1]=2
-    if 15==control:
-            #print("s3")
-        matrix_savePixel[0][ixt1]=3
-    if 16==control:
-            #print("s1")
-        matrix_savePixel[0][ixt1]=1
-    if 17==control:
-            #print("s2")
-        matrix_savePixel[0][ixt1]=2
-    if 18==control:
-            #print("s3")
-        matrix_savePixel[0][ixt1]=3
-    control = control + 1  
-    #matrix_savePixel[0][ixt1]=2
-#print_mc()
-for ixt2 in range(1,3):
-    for iyt2 in range(0,3):
-        if 19==control:
-            #print("s1")
-            matrix_savePixel[ixt2][iyt2]=1
-        if 20==control:
-                #print("s2")
-            matrix_savePixel[ixt2][iyt2]=2
-        if 21==control:
-                #print("s3")
-            matrix_savePixel[ixt2][iyt2]=3
-        if 22==control:
-                #print("s1")
-            matrix_savePixel[ixt2][iyt2]=1
-        if 23==control:
-                #print("s2")
-            matrix_savePixel[ixt2][iyt2]=2
-        if 24==control:
-                #print("s3")
-            matrix_savePixel[ixt2][iyt2]=3
-        control = control + 1   
-        #print(" ixt "+str(ixt2)+" iyt "+str(iyt2))
-         #matrix_savePixel[ixt2][iyt2]=3
-#print_mc()
-for ixt3 in range(0,3):
-     if 25==control:
-                #print("s1")
-        matrix_savePixel[0][ixt3]=1
-     if 26==control:
-                #print("s2")
-        matrix_savePixel[0][ixt3]=2
-     if 27==control:
-                #print("s3")
-        matrix_savePixel[0][ixt3]=3
-     control = control + 1 
-    #matrix_savePixel[0][ixt3]=4
-print_mc()
 sector=1
 for itli in range(3):
     for itlo in range(9):
@@ -226,10 +131,41 @@ for itli in range(3):
         
         sector = sector + 1
         
-        print(" itli "+str(itli)+" itlo "+str(itlo))
+        #print(" itli "+str(itli)+" itlo "+str(itlo))
 print_so()
 for clx in range(3):
     for cly in range(9):
         if matrix_saveOperation[clx][cly]<0:
             matrix_saveOperation[clx][cly]=matrix_saveOperation[clx][cly]*-1
 print_so()
+R=0
+G=0
+B=0
+for oxl in range(3):
+    R+=matrix_saveOperation[oxl][0]+matrix_saveOperation[oxl][3]+matrix_saveOperation[oxl][6]
+    G+=matrix_saveOperation[oxl][1]+matrix_saveOperation[oxl][4]+matrix_saveOperation[oxl][7]
+    B+=matrix_saveOperation[oxl][2]+matrix_saveOperation[oxl][5]+matrix_saveOperation[oxl][8]
+if bias==1:
+    print("with bias")
+    if R>=biasv:
+        R=biasv
+    if G>=biasv:
+        G=biasv
+    if B>=biasv:
+        B=biasv
+else:
+    print("without bias")
+    if R>=255:
+        R=255
+    if G>=255:
+        G=255
+    if B>=255:
+        B=255
+    if R<0:
+        R=0
+    if G<0:
+        G=0
+    if B<0:
+        B=0
+        #print("1p R "+str(R)+" G "+str(G)+" B "+str(B))
+print("2p R "+str(R)+" G "+str(G)+" B "+str(B))
