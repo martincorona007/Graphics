@@ -33,7 +33,7 @@ img=cv2.imread('pk.PNG')
 
 sum1=0
 rule_1=0
-
+rule_2=0
 sect_a=0
 sect_b=0
 sect_c=0
@@ -76,105 +76,121 @@ def print_msp():
     print("\n")
 #================================================================
 #>>>>>>>>>>>>>>>>>>>>>>>>sect_h<<<<<<<<<<<<<<<<<<<<<<<<<
-def save_pixel(R,G,B):
+def save_pixela(R,G,B,doc):
     #print_mc()
     control=1
     for ixt in range(1,3):
         for iyt in range(3,9):
             #print(" ixt "+str(ixt)+" iyt "+str(iyt))
-            if 1==control:
-                #print("s1")
-                matrix_savePixel[ixt][iyt]=R
-            if 2==control:
-                #print("s2")
-                matrix_savePixel[ixt][iyt]=G
-            if 3==control:
-                #print("s3")
-                matrix_savePixel[ixt][iyt]=B
-            if 4==control:
-                #print("s1")
-                matrix_savePixel[ixt][iyt]=R
-            if 5==control:
-                #print("s2")
-                matrix_savePixel[ixt][iyt]=G
-            if 6==control:
-                #print("s3")
-                matrix_savePixel[ixt][iyt]=B
-            if 7==control:
-                #print("s1")
-                matrix_savePixel[ixt][iyt]=R
-            if 8==control:
-                #print("s2")
-                matrix_savePixel[ixt][iyt]=G
-            if 9==control:
-                #print("s3")
-                matrix_savePixel[ixt][iyt]=B
-            if 10==control:
-                #print("s1")
-                matrix_savePixel[ixt][iyt]=R
-            if 11==control:
-                #print("s2")
-                matrix_savePixel[ixt][iyt]=G
-            if 12==control:
-                #print("s3")
-                matrix_savePixel[ixt][iyt]=B
+            if doc==1:
+               if 1==control:
+                    #print("s1")
+                   matrix_savePixel[ixt][iyt]=R
+               if 2==control:
+
+                    #print("s2")
+                   matrix_savePixel[ixt][iyt]=G
+               if 3==control:
+                    #print("s3")
+                   matrix_savePixel[ixt][iyt]=B
+            if doc==2:
+                if 4==control:
+                    #print("s1")
+                    matrix_savePixel[ixt][iyt]=R
+                if 5==control:
+                    #print("s2")
+                    matrix_savePixel[ixt][iyt]=G
+                if 6==control:
+                    #print("s3")
+                    matrix_savePixel[ixt][iyt]=B
+            if doc==3:
+                if 7==control:
+                    #print("s1")
+                    matrix_savePixel[ixt][iyt]=R
+                if 8==control:
+                    #print("s2")
+                    matrix_savePixel[ixt][iyt]=G
+                if 9==control:
+                    #print("s3")
+                    matrix_savePixel[ixt][iyt]=B
+            if doc==4:
+                if 10==control:
+                    #print("s1")
+                    matrix_savePixel[ixt][iyt]=R
+                if 11==control:
+                    #print("s2")
+                    matrix_savePixel[ixt][iyt]=G
+                if 12==control:
+                    #print("s3")
+                    matrix_savePixel[ixt][iyt]=B
             control = control + 1    
             #matrix_savePixel[ixt][iyt]=1
-    #print_mc()
+def save_pixelb(R,G,B,doc):
+    control=1
     for ixt1 in range(3,9):
-        if 13==control:
-                #print("s1")
-            matrix_savePixel[0][ixt1]=R
-        if 14==control:
-                #print("s2")
-            matrix_savePixel[0][ixt1]=G
-        if 15==control:
-                #print("s3")
-            matrix_savePixel[0][ixt1]=B
-        if 16==control:
-                #print("s1"
-            matrix_savePixel[0][ixt1]=R
-        if 17==control:
-                #print("s2")
-            matrix_savePixel[0][ixt1]=G
-        if 18==control:
-                #print("s3")
-            matrix_savePixel[0][ixt1]=B
+        if doc==1:
+
+            if 1==control:
+                    #print("s1")
+                matrix_savePixel[0][ixt1]=R
+            if 2==control:
+                    #print("s2")
+                matrix_savePixel[0][ixt1]=G
+            if 3==control:
+                    #print("s3")
+                matrix_savePixel[0][ixt1]=B
+        if doc==2:
+
+            if 4==control:
+                    #print("s1"
+                matrix_savePixel[0][ixt1]=R
+            if 5==control:
+                    #print("s2")
+                matrix_savePixel[0][ixt1]=G
+            if 6==control:
+                    #print("s3")
+                matrix_savePixel[0][ixt1]=B
         control = control + 1  
         #matrix_savePixel[0][ixt1]=2
-    #print_mc()
+def save_pixelc(R,G,B,doc):
+    control=1
     for ixt2 in range(1,3):
         for iyt2 in range(0,3):
-            if 19==control:
-                #print("s1")
-                matrix_savePixel[ixt2][iyt2]=R
-            if 20==control:
-                    #print("s2")
-                matrix_savePixel[ixt2][iyt2]=G
-            if 21==control:
-                    #print("s3")
-                matrix_savePixel[ixt2][iyt2]=B
-            if 22==control:
+            if doc==1:
+
+                if 1==control:
                     #print("s1")
-                matrix_savePixel[ixt2][iyt2]=R
-            if 23==control:
-                    #print("s2")
-                matrix_savePixel[ixt2][iyt2]=G
-            if 24==control:
-                    #print("s3")
-                matrix_savePixel[ixt2][iyt2]=B
+                    matrix_savePixel[ixt2][iyt2]=R
+                if 2==control:
+                        #print("s2")
+                    matrix_savePixel[ixt2][iyt2]=G
+                if 3==control:
+                        #print("s3")
+                    matrix_savePixel[ixt2][iyt2]=B
+            if doc==2:
+
+                if 4==control:
+                        #print("s1")
+                    matrix_savePixel[ixt2][iyt2]=R
+                if 5==control:
+                        #print("s2")
+                    matrix_savePixel[ixt2][iyt2]=G
+                if 6==control:
+                        #print("s3")
+                    matrix_savePixel[ixt2][iyt2]=B
             control = control + 1   
             #print(" ixt "+str(ixt2)+" iyt "+str(iyt2))
             #matrix_savePixel[ixt2][iyt2]=3
-    #print_mc()
+def save_pixeld(R,G,B):
+    control=1
     for ixt3 in range(0,3):
-        if 25==control:
+        if 1==control:
                     #print("s1")
             matrix_savePixel[0][ixt3]=R
-        if 26==control:
+        if 2==control:
                     #print("s2")
             matrix_savePixel[0][ixt3]=G
-        if 27==control:
+        if 3==control:
                     #print("s3")
             matrix_savePixel[0][ixt3]=B
         control = control + 1 
@@ -217,13 +233,13 @@ for i in range(n):
 print_mc()
 
 
-n=5
+n=3
 matrix_1=[[0]* n for i in range(n)]#Get the Source pixel 
 
 #matrix_2=[[0]* n for i in range(n)]
 
-for itx in range(n):
-    for ity in range(n):
+for itx in range(img.shape[0]):
+    for ity in range(img.shape[1]):
         aux_i=itx
         aux_j=ity
 
@@ -243,12 +259,15 @@ for itx in range(n):
         aux_j1-=1
         aux_i2+=1
         aux_j2+=1
-        print("POINT1 [aux_i1 "+str(aux_i1)+" aux_j1 "+str(aux_j1)+"] [aux_i "+str(aux_i)+" aux_j "+str(aux_j)+"] [aux_i2 "+str(aux_i2)+" aux_j2  "+str(aux_j2)+"]") 
-        print("POINT2 [aux_i3 "+str(aux_i3)+" aux_j3 "+str(aux_j3)+"] [aux_i "+str(aux_i)+" aux_j "+str(aux_j)+"] [aux_i4 "+str(aux_i4)+" aux_j4  "+str(aux_j4)+"]") 
-        rule_1=n
+        print("POINT1 [aux_i1 "+str(aux_i1)+" aux_j1 "+str(aux_j1)+"]  [aux_i "+str(aux_i)+" aux_j "+str(aux_j)+"] [aux_i3 "+str(aux_i3)+" aux_j3 "+str(aux_j3)+"]") 
+        print("POINT2 [aux_i4 "+str(aux_i4)+" aux_j4  "+str(aux_j4)+"] [aux_i "+str(aux_i)+" aux_j "+str(aux_j)+"] [aux_i2 "+str(aux_i2)+" aux_j2  "+str(aux_j2)+"]") 
+        rule_1=img.shape[0]
+        rule_2=img.shape[1]
         #print("rule "+str(rule_1))
         rule_1-=1
-        #print("rule "+str(rule_1))
+        rule_2-=1
+        print("rule1 "+str(rule_1))
+        print("rule2 "+str(rule_2))
         #====================>>       BELOW SIDE      <<===================
         if aux_i2 > rule_1:
             sect_a=1
@@ -302,7 +321,7 @@ for itx in range(n):
             sect_g=0
             sect_h=0
             sect_i=0
-        #====================>>BELOW RIGHT SIDE CONER<<====================
+        #====================>>BELOW RIGHT SIDE CORNER<<====================
         if aux_i2>rule_1 and aux_j2>rule_1: 
             sect_a=0
             sect_b=0
@@ -313,7 +332,7 @@ for itx in range(n):
             sect_g=0
             sect_h=0
             sect_i=0
-        #====================>>BELOW LEFT SIDE CONER<<=====================      
+        #====================>>BELOW LEFT SIDE CORNER<<=====================      
         if aux_i4>rule_1 and aux_j4<0: 
             sect_a=0
             sect_b=0
@@ -324,7 +343,7 @@ for itx in range(n):
             sect_g=1
             sect_h=0
             sect_i=0
-        #====================>>ABOVE LEFT SIDE CONER<<=====================
+        #====================>>ABOVE LEFT SIDE CORNER<<=====================
         if aux_i1<0 and aux_j1<0: 
             sect_h=1 
             sect_g=0
@@ -334,7 +353,7 @@ for itx in range(n):
             sect_a=0
             sect_e=0
             sect_c=0 
-        #====================>>ABOVE RIGHT SIDE CONER<<====================
+        #====================>>ABOVE RIGHT SIDE CORNER<<====================
         if aux_i3<0 and aux_j3>rule_1:
             sect_i=1
             sect_h=0
@@ -345,7 +364,12 @@ for itx in range(n):
             sect_a=0
             sect_e=0
             sect_c=0
-        #====================>>ABOVE RIGHT SIDE CONER<<====================
+        
+        #>>>>>>>>>>>>>>>>>>>>>>>>>>>>        <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+        #>>>>>>>>>>>>>>>>>>>>>>>>>>>>SECTIONS<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+        #>>>>>>>>>>>>>>>>>>>>>>>>>>>>        <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+        #====================>>ABOVE RIGHT SIDE CORNER<<====================
         if sect_i == 1:
             aux_i3+=1
             aux_j3-=2
@@ -353,58 +377,73 @@ for itx in range(n):
             for x in range(aux_i3,aux_i4+1,):
                for y in range(aux_j3,aux_j4+1,):
                    # print("Ma m "+str(matrix_1[x][y])+" x "+str(x)+" y "+str(y))
-                    sum1+=matrix_1[x][y]
+                    #sum1+=matrix_1[x][y]
                  #   print("==========="+str(sum1))
-                    
+                    print()
                # print("==========="+str(sum1))
               #  print("APK aux_i1 "+str(aux_i1)+" aux_j1 "+str(aux_j1)+" aux_i2 "+str(aux_i2)+" aux_j2 "+str(aux_j2)) 
         
             i8=0
             while i8<=aux_i4:
-                sum1+=matrix_1[i8][0]
+                #sum1+=matrix_1[i8][0]
                 #print("M10b m "+str(matrix_1[i8][0])+" x "+str(i8)+" y "+str(0))
                 #print("==========="+str(sum1))
                 i8 = i8 + 1
             xr3=aux_j3
             while xr3<=rule_1:
-                sum1+=matrix_1[rule_1][xr3]
+                #sum1+=matrix_1[rule_1][xr3]
                 #print("M10c m "+str(matrix_1[rule_1][xr3])+" x "+str(rule_1)+" y "+str(xr3))
                 #print("==========="+str(sum1))
                 xr3 = xr3 + 1
-            sum1+=matrix_1[rule_1][0]
+            #sum1+=matrix_1[rule_1][0]
           #  matrix_2[aux_i][aux_j]=sum1 
-        #====================>>ABOVE LEFT SIDE CONER<<=====================
+        #====================>>ABOVE LEFT SIDE CORNER<<=====================
         if sect_h == 1:
             aux_i1+=1
             aux_j1+=1
             #A
+            dit=1
             for x in range(aux_i1,aux_i2+1,):
                for y in range(aux_j1,aux_j2+1,):
-                  #  print("Ma m "+str(matrix_1[x][y])+" x "+str(x)+" y "+str(y))
-                    sum1+=matrix_1[x][y]
-                 #   print("==========="+str(sum1))
-                    
-               # print("==========="+str(sum1))
-              #  print("APK aux_i1 "+str(aux_i1)+" aux_j1 "+str(aux_j1)+" aux_i2 "+str(aux_i2)+" aux_j2 "+str(aux_j2)) 
+                    color = tuple(img[x][y])
+                    r, g, b = color
+                    print("Ma")
+                    print("<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(x)+","+str(y)+"]")
+                    save_pixela(r,g,b,dit)
+                    dit = dit + 1
+                    print_msp()   
             #B
             i7=0
+            dit1=1
             while i7<=aux_j2:
-                #print("Mb m "+str(matrix_1[rule_1][i7])+" x "+str(rule_1)+" y "+str(i7))
-                sum1+=matrix_1[rule_1][i7]
-                #print("==========="+str(sum1))
+                color= tuple(img[rule_1][i7])
+                r,g,b =  color
+                print("Mb")
+                print("<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(rule_1)+","+str(i7)+"]")
+                save_pixelb(r,g,b,dit1)
+                dit1 = dit1 + 1
                 i7 = i7 + 1
+                print_msp()
             #C
             xr2=0
+            dit2=1
             while xr2<=aux_j2:
-                #print("Mc m "+str(matrix_1[xr2][aux_j2])+" x "+str(xr2)+" y "+str(aux_j2))
-                sum1+=matrix_1[xr2][rule_1]
-                #print("==========="+str(sum1))
+                color= tuple(img[xr2][rule_2])
+                r,g,b =  color
+                print("Mc")
+                print("<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(xr2)+","+str(rule_2)+"]")
+                save_pixelc(r,g,b,dit2)
+                dit2 = dit2 + 1
                 xr2 = xr2 + 1
-            #D 
-            sum1+=matrix_1[rule_1][rule_1]
-           # print("==========="+str(sum1))
-           # matrix_2[aux_i][aux_j]=sum1
-        #====================>>BELOW LEFT SIDE CONER<<=====================       
+                print_msp()
+            #D
+            print("Md") 
+            color= tuple(img[rule_1][rule_2])
+            r,g,b =  color
+            save_pixeld(r,g,b)
+            print("<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(rule_1)+","+str(rule_2)+"]")
+            print_msp()   
+        #====================>>BELOW LEFT SIDE CORNER<<=====================       
         if sect_g == 1:
             aux_j3-=1
             aux_i4-=1
@@ -413,32 +452,34 @@ for itx in range(n):
            # print("++POINT3 [aux_i3 "+str(aux_i3)+" aux_j3 "+str(aux_j3)+"] [aux_i "+str(aux_i)+" aux_j "+str(aux_j)+"] [aux_i4 "+str(aux_i4)+" aux_j4  "+str(aux_j4)+"]") 
             for x in range(aux_i3,aux_i4+1):
                 for y in range(aux_j3,aux_j4+1):
+                    print()
              #       print("Ma m "+str(matrix_1[x][y])+" x "+str(x)+" y "+str(y))
-                    sum1+=matrix_1[x][y]
+                   # sum1+=matrix_1[x][y]
             #        print("==========="+str(sum1))
             ik6=0
             while ik6<=aux_j4:
               #  print("Mb m "+str(matrix_1[0][ik6])+" x "+str(0)+" y "+str(ik6))
-                sum1+=matrix_1[0][ik6]
+               # sum1+=matrix_1[0][ik6]
                # print("==========="+str(sum1))
                 ik6 = ik6 + 1
             it3=aux_i3
             while it3<=rule_1:
                 #print("Mc m "+str(matrix_1[it3][rule_1])+" x "+str(it3)+" y "+str(rule_1))
-                sum1+=matrix_1[it3][rule_1]
+               # sum1+=matrix_1[it3][rule_1]
                 #print("==========="+str(sum1))
                 it3 = it3 + 1
-            sum1+=matrix_1[0][rule_1]
+           # sum1+=matrix_1[0][rule_1]
             #print("==========="+str(sum1))
            # matrix_2[aux_i][aux_j]=sum1
-        #====================>>BELOW RIGHT SIDE CONER<<====================       
+        #====================>>BELOW RIGHT SIDE CORNER<<====================       
         if sect_f == 1:
             aux_i2-=1
             aux_j2-=1
             for x in range(aux_i1,aux_i2+1,):
                for y in range(aux_j1,aux_j2+1,):
             #        print("Ma m "+str(matrix_1[x][y])+" x "+str(x)+" y "+str(y))
-                    sum1+=matrix_1[x][y]
+                    print()
+                    #sum1+=matrix_1[x][y]
                    # print("==========="+str(sum1))
                     
                # print("==========="+str(sum1))
@@ -446,13 +487,13 @@ for itx in range(n):
         
             i5=aux_i1
             while i5<=rule_1:
-                sum1+=matrix_1[i5][0]
+                #sum1+=matrix_1[i5][0]
                 i5 = i5 + 1
             xr=aux_j1
             while xr<=rule_1:
-                sum1+=matrix_1[0][xr]
+                #sum1+=matrix_1[0][xr]
                 xr = xr + 1
-            sum1+=matrix_1[0][0]
+            #sum1+=matrix_1[0][0]
           #  matrix_2[aux_i][aux_j]=sum1
         #====================>>       LEFT SIDE      <<==================== 
         if sect_e == 1:
@@ -460,16 +501,16 @@ for itx in range(n):
             for x in range(aux_i1,aux_i2+1,):
                 for y in range(aux_j1,aux_j2+1,):
                     #print("Ma m "+str(matrix_1[x][y])+" x "+str(x)+" y "+str(y))
-                    sum1+=matrix_1[x][y]
+                    #sum1+=matrix_1[x][y]
                     #print("==========="+str(sum1))
-                    
+                    print() 
          #print("==========="+str(sum1))
               #  print("APK aux_i1 "+str(aux_i1)+" aux_j1 "+str(aux_j1)+" aux_i2 "+str(aux_i2)+" aux_j2 "+str(aux_j2)) 
         
             i4=aux_i1
             while i4<=aux_i2:
                 #print("Mb m "+str(matrix_1[i4][rule_1])+" x "+str(i4)+" y "+str(rule_1))
-                sum1+=matrix_1[i4][rule_1]
+                #sum1+=matrix_1[i4][rule_1]
                 #print("==========="+str(sum1))
                 i4 = i4 + 1
            # matrix_2[aux_i][aux_j]=sum1
@@ -479,16 +520,16 @@ for itx in range(n):
             for x in range(aux_i1,aux_i2+1,):
                for y in range(aux_j1,aux_j2+1,):
                     #print("Ma m "+str(matrix_1[x][y])+" x "+str(x)+" y "+str(y))
-                    sum1+=matrix_1[x][y]
+                    #sum1+=matrix_1[x][y]
                     #print("==========="+str(sum1))
-                    
+                    print()
                # print("==========="+str(sum1))
               #  print("APK aux_i1 "+str(aux_i1)+" aux_j1 "+str(aux_j1)+" aux_i2 "+str(aux_i2)+" aux_j2 "+str(aux_j2)) 
         
             i3=aux_i1
             while i3<=aux_i2:
                 #print("Mb m "+str(matrix_1[i3][0])+" x "+str(i3)+" y "+str(0))
-                sum1+=matrix_1[i3][0]
+                #sum1+=matrix_1[i3][0]
                 #print("==========="+str(sum1))
                 i3 = i3 + 1
            # matrix_2[aux_i][aux_j]=sum1 
@@ -498,15 +539,15 @@ for itx in range(n):
             for x in range(aux_i1,aux_i2+1,):
                for y in range(aux_j1,aux_j2+1,):
             #        print("Ma m "+str(matrix_1[x][y])+" x "+str(x)+" y "+str(y))
-                    sum1+=matrix_1[x][y]
+               #     sum1+=matrix_1[x][y]
                    # print("==========="+str(sum1))
-                    
+                    print()     
                # print("==========="+str(sum1))
               #  print("APK aux_i1 "+str(aux_i1)+" aux_j1 "+str(aux_j1)+" aux_i2 "+str(aux_i2)+" aux_j2 "+str(aux_j2)) 
         
             i2=aux_j1
             while i2<=aux_j2:
-                sum1+=matrix_1[rule_1][i2]
+               # sum1+=matrix_1[rule_1][i2]
                 i2 = i2 + 1
             #matrix_2[aux_i][aux_j]=sum1
         #====================>>       BELOW SIDE      <<===================
@@ -515,15 +556,15 @@ for itx in range(n):
             for x in range(aux_i1,aux_i2+1,):
                 for y in range(aux_j1,aux_j2+1,):
             #        print("Ma m "+str(matrix_1[x][y])+" x "+str(x)+" y "+str(y))
-                    sum1+=matrix_1[x][y]
+                #    sum1+=matrix_1[x][y]
                    # print("==========="+str(sum1))
-                    
+                    print()
                # print("==========="+str(sum1))
               #  print("APK aux_i1 "+str(aux_i1)+" aux_j1 "+str(aux_j1)+" aux_i2 "+str(aux_i2)+" aux_j2 "+str(aux_j2)) 
         
             ii=aux_j1
             while ii<=aux_j2:
-                sum1+=matrix_1[0][ii]
+                #sum1+=matrix_1[0][ii]
                 ii = ii + 1
             #matrix_2[aux_i][aux_j]=sum1
         #====================>>       CENTER SIDE      <<==================
@@ -535,9 +576,9 @@ for itx in range(n):
             for x in range(aux_i1,aux_i2+1,):
                 for y in range(aux_j1,aux_j2+1,):
             #        print("Ma m "+str(matrix_1[x][y])+" x "+str(x)+" y "+str(y))
-                    sum1+=matrix_1[x][y]
+                #    sum1+=matrix_1[x][y]
                    # print("==========="+str(sum1))
-                    
+                    print()
                # print("==========="+str(sum1))
               #  print("APK aux_i1 "+str(aux_i1)+" aux_j1 "+str(aux_j1)+" aux_i2 "+str(aux_i2)+" aux_j2 "+str(aux_j2)) 
         

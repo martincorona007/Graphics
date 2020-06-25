@@ -30,7 +30,8 @@ for x in range(img.shape[0]):
         print("\n<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(x)+","+str(y)+"]")
 print(type(img))
 print(type(color))
-
+print(img.shape[0])
+print(img.shape[1])
 """
 def getPixels(filename):
     img = Image.open(filename, 'r')
