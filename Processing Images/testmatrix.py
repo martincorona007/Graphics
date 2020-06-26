@@ -18,6 +18,10 @@ for xrt in range(6):
 print_mc()
 """
 for xrt in range(0,3):
-    for yrt in range(0,9):
+    for yrt in range(0,6):
         matrix_savePixel[xrt][yrt]=1
+print_mc()
+for xrt in range(0,3):
+    for yrt in range(6,9):
+        matrix_savePixel[xrt][yrt]=2
 print_mc()
