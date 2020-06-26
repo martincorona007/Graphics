@@ -9,18 +9,9 @@ def print_mc():
     print("\n")
 
 for xrt in range(0,2):
-    for yrt in range(3,9):
+    for yrt in range(0,9):
         matrix_savePixel[xrt][yrt]=1
 print_mc()
-
-for xrt in range(3,9):
+for xrt in range(9):
     matrix_savePixel[2][xrt]=2
-print_mc()
-
-for xrt in range(0,2):
-    for yrt in range(0,3):
-        matrix_savePixel[xrt][yrt]=3
-print_mc()
-for xrt in range(0,3):
-    matrix_savePixel[2][xrt]=4
 print_mc()
