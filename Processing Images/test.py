@@ -21,7 +21,7 @@ for y in range(im.shape[0]):
         r, g, b = color
 """
 import cv2
-img=cv2.imread('pk.PNG')
+img=cv2.imread('p4.jpg')
 #outPutImg=img.shape
 for x in range(img.shape[0]):
     for y in range(img.shape[1]):
@@ -32,15 +32,16 @@ print(type(img))
 print(type(color))
 print(img.shape[0])
 print(img.shape[1])
+
 """
 def getPixels(filename):
     img = Image.open(filename, 'r')
     w, h = img.size
     pix = list(img.getdata())
-                    
+    print(type(pix))               
     return [pix[n:n+w] for n in range(0, w*h, w)]
 
-print(getPixels('p7.png'))
+print(getPixels('pk.PNG'))
 """
 
 #++++++++++++++++++++++++++++++
