@@ -8,11 +8,11 @@ In this blog I explain the program https://dev.to/martincorona007/matrix-neighbo
 ![p10](https://user-images.githubusercontent.com/31390537/82125267-6aa8db00-976a-11ea-80ef-57e4cfc52519.PNG)
 
 ## Project ##
-p1
+p1 Traslation
 ![k1](https://user-images.githubusercontent.com/31390537/82120264-75537800-974a-11ea-89fe-1ebcdbfd4191.png)
-p2
+p2 Rotation
 ![k2](https://user-images.githubusercontent.com/31390537/82120283-843a2a80-974a-11ea-8249-6b88e7eb34ce.png)
-p3
+p3 Escalation
 ![k3](https://user-images.githubusercontent.com/31390537/82120289-8f8d5600-974a-11ea-9b6d-d952a801be1d.png)
 
 ## Processing Images ##
