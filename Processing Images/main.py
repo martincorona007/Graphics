@@ -243,64 +243,35 @@ def save_pixelF(R,G,B,doc,x):
             if control==9:
                 matrix_savePixel[x][y]=B
         control = control + 1 
-def save_pixelG(R,G,B,doc,ctl):
-    if ctl == 1:
-        control=1
-        for y in range(3,9):
-            if doc==1:
-                if 1==control:
-                    matrix_savePixel[0][y]=R
-                if 2==control:
-                    matrix_savePixel[0][y]=G
-                if 3==control:
-                    matrix_savePixel[0][y]=B
-            if doc==2:
-                if 4==control:
-                    matrix_savePixel[0][y]=R
-                if 5==control:
-                    matrix_savePixel[0][y]=G
-                if 6==control:
-                    matrix_savePixel[0][y]=B
-        control = control + 1  
-    if ctl == 2:
-        control=1
-        for y in range(6):
-            if doc==1:
-                if 1==control:
-                    matrix_savePixel[2][y]=R
-                if 2==control:
-                    matrix_savePixel[2][y]=G
-                if 3==control:
-                    matrix_savePixel[2][y]=B
-            if doc==2:
-                if 4==control:
-                    matrix_savePixel[2][y]=R
-                if 5==control:
-                    matrix_savePixel[2][y]=G
-                if 6==control:
-                    matrix_savePixel[2][y]=B
-            control = control + 1 
-def save_pixelF(R,G,B,doc,ctl):
-    if ctl == 1:
-        control=1
-        for y in range(0,3):
-            if control == 1:
-                matrix_savePixel[0][y]=R
-            if control == 2:
-                matrix_savePixel[0][y]=G
-            if control == 3:
-                matrix_savePixel[0][y]=B
-            control = control + 1 
-    if ctl == 2:
-        control=1
-        for y in range(6,9):
-            if control == 1:
-                matrix_savePixel[2][y]=R
-            if control == 2:
-                matrix_savePixel[2][y]=G
-            if control == 3:
-                matrix_savePixel[2][y]=B
-            control = control + 1 
+def save_pixelG(R,G,B,doc,x,a,b):
+    control=1
+    for y in range(a,b):
+        if doc==1:
+            if 1==control:
+                matrix_savePixel[x][y]=R
+            if 2==control:
+                matrix_savePixel[x][y]=G
+            if 3==control:
+                matrix_savePixel[x][y]=B
+        if doc==2:
+            if 4==control:
+                matrix_savePixel[x][y]=R
+            if 5==control:
+                matrix_savePixel[x][y]=G
+            if 6==control:
+                matrix_savePixel[x][y]=B
+        control = control + 1     
+def save_pixelH(R,G,B,x,a,b):
+    control=1
+    for y in range(a,b):
+        if control == 1:
+            matrix_savePixel[x][y]=R
+        if control == 2:
+            matrix_savePixel[x][y]=G
+        if control == 3:
+            matrix_savePixel[x][y]=B
+        control = control + 1 
+    
 def save_pixelsbA(R,G,B,doc):
     control=1
     for x in range(0,3):
@@ -531,21 +502,21 @@ outputImg=np.zeros([height,width,3],dtype=np.uint8)
 
 for itx in range(height):
     for ity in range(width):
-"""
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-+[      ,      ][      ,      ][      ,      ][aux_i3,aux_j3][      ,      ]+
-+[      ,      ][      ,      ][ aux_i,aux_j ][      ,      ][      ,      ]+
-+[      ,      ][aux_i4,aux_j4][      ,      ][      ,      ][      ,      ]+
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-+[      ,      ][aux_i1,aux_j1][      ,      ][      ,      ][      ,      ]+
-+[      ,      ][      ,      ][ aux_i,aux_j ][      ,      ][      ,      ]+
-+[      ,      ][      ,      ][      ,      ][aux_i2,aux_j2][      ,      ]+
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-+[      ,      ][aux_i1,aux_j1][      ,      ][aux_i3,aux_j3][      ,      ]+
-+[      ,      ][      ,      ][ aux_i,aux_j ][      ,      ][      ,      ]+
-+[      ,      ][aux_i4,aux_j4][      ,      ][aux_i2,aux_j2][      ,      ]+
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-"""
+        """
+        +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        +[      ,      ][      ,      ][      ,      ][aux_i3,aux_j3][      ,      ]+
+        +[      ,      ][      ,      ][ aux_i,aux_j ][      ,      ][      ,      ]+
+        +[      ,      ][aux_i4,aux_j4][      ,      ][      ,      ][      ,      ]+
+        +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        +[      ,      ][aux_i1,aux_j1][      ,      ][      ,      ][      ,      ]+
+        +[      ,      ][      ,      ][ aux_i,aux_j ][      ,      ][      ,      ]+
+        +[      ,      ][      ,      ][      ,      ][aux_i2,aux_j2][      ,      ]+
+        +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        +[      ,      ][aux_i1,aux_j1][      ,      ][aux_i3,aux_j3][      ,      ]+
+        +[      ,      ][      ,      ][ aux_i,aux_j ][      ,      ][      ,      ]+
+        +[      ,      ][aux_i4,aux_j4][      ,      ][aux_i2,aux_j2][      ,      ]+
+        +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        """
         aux_i=itx
         aux_j=ity
 
@@ -676,339 +647,54 @@ for itx in range(height):
         #>>>>>>>>>>>>>>>>>>>>>>>>>>>>        <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
         #>>>>>>>>>>>>>>>>>>>>>>>>>>>>SECTIONS<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
         #>>>>>>>>>>>>>>>>>>>>>>>>>>>>        <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-
-        #====================>>ABOVE RIGHT SIDE CORNER<<====================
-        if sect_i == 1:
-            aux_i3+=1
-            aux_j3-=2
-            aux_j4+=1
-            dist1=1
-            #A
-            for x in range(aux_i3,aux_i4+1,):
-               for y in range(aux_j3,aux_j4+1,):
-                   # print("Ma m "+str(matrix_1[x][y])+" x "+str(x)+" y "+str(y))
-                    #sum1+=matrix_1[x][y]
-                 #   print("==========="+str(sum1))
-                    color= tuple(img[x][y])
-                    r, g, b =  color
-                    #print("Ma")
-                    #print("<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(x)+","+str(y)+"]")
-                    save_pixelsiA(r,g,b,dist1)
-                    dist1 = dist1 + 1
-                    #print_msp()
-
-               # print("==========="+str(sum1))
-              #  print("APK aux_i1 "+str(aux_i1)+" aux_j1 "+str(aux_j1)+" aux_i2 "+str(aux_i2)+" aux_j2 "+str(aux_j2)) 
-            #B
-            dist3=1
-            xr3=aux_j3
-            while xr3<=rule_1:
-                color= tuple(img[rule_1][xr3])
-                r,g,b =  color
-                #print("Mb")
-                #print("<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(rule_1)+","+str(xr3)+"]")
-                save_pixelsiB(r,g,b,dist3)
-                dist3 = dist3 + 1
-                xr3 = xr3 + 1
-                #print_msp()
-            #C
-            dist2=1
-            i8=0
-            while i8<=aux_i4:
-                color= tuple(img[i8][0])
-                r,g,b =  color
-                #print("Mc")
-                #print("<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(i8)+","+str(0)+"]")
-                save_pixelsiC(r,g,b,dist2)
-                dist2 = dist2 + 1
-                
-                i8 = i8 + 1
-                #print_msp()
-            #D
-            #print("Md") 
-            color= tuple(img[rule_1][0])
-            r,g,b =  color
-            save_pixelsiD(r,g,b)
-            npixel=operation()
-            outputImg[aux_i][aux_j]=npixel[0]
-            #output=Image.fromarray(outputImg)
-            #img.save("/home/alien/Documents/GitHub/Graphics/Processing Images/test_pics/newImage.png")
-            #print("<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(rule_1)+","+str(rule_2)+"]")
-            #print_msp()
-            
-            #sum1+=matrix_1[rule_1][0]
-          #  matrix_2[aux_i][aux_j]=sum1 
         #====================>>ABOVE LEFT SIDE CORNER<<=====================
         if sect_h == 1:
             aux_i1+=1
             aux_j1+=1
             #A
-            dit=1
+            ith_1=1
             for x in range(aux_i1,aux_i2+1,):
                for y in range(aux_j1,aux_j2+1,):
                     color = tuple(img[x][y])
                     r, g, b = color
                     #print("Ma")
                     #print("<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(x)+","+str(y)+"]")
-                    save_pixelsha(r,g,b,dit)
-                    dit = dit + 1
+                    save_pixelA(r,g,b,ith_1,1,3,3,9)
+                    ith_1 = ith_1 + 1
                     #print_msp()   
             #B
-            i7=0
+            ih1=0
             dit1=1
-            while i7<=aux_j2:
-                color= tuple(img[rule_1][i7])
+            while ih1<=aux_j2:
+                color= tuple(img[rule_1][ih1])
                 r,g,b =  color
                 #print("Mb")
                 #print("<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(rule_1)+","+str(i7)+"]")
-                save_pixelshb(r,g,b,dit1)
+                save_pixelG(r,g,b,dit1,0,3,9)
                 dit1 = dit1 + 1
-                i7 = i7 + 1
+                ih1 = ih1 + 1
                 #print_msp()
             #C
-            xr2=0
+            ih2=0
             dit2=1
-            while xr2<=aux_j2:
-                color= tuple(img[xr2][rule_2])
+            while ih2<=aux_j2:
+                color= tuple(img[ih2][rule_2])
                 r,g,b =  color
                 #print("Mc")
                 #print("<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(xr2)+","+str(rule_2)+"]")
-                save_pixelshc(r,g,b,dit2)
+                save_pixelC(r,g,b,dit2,1,3,0,3)
                 dit2 = dit2 + 1
-                xr2 = xr2 + 1
+                ih2 = ih2 + 1
                 #print_msp()
             #D
             #print("Md") 
             color= tuple(img[rule_1][rule_2])
             r,g,b =  color
-            save_pixelshd(r,g,b)
+            save_pixelH(r,g,b,0,0,3)
             #print("<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(rule_1)+","+str(rule_2)+"]")
             #print_msp()
             npixel=operation()
             outputImg[aux_i][aux_j]=npixel[0]
-            #output=Image.fromarray(outputImg)
-            #img.save("/home/alien/Documents/GitHub/Graphics/Processing Images/test_pics/newImage.png")   
-        #====================>>BELOW LEFT SIDE CORNER<<=====================       
-        if sect_g == 1:
-            aux_j3-=1
-            aux_i4-=1
-            aux_j4+=2
-            dist8=1
-            #A
-            for x in range(aux_i3,aux_i4+1):
-                for y in range(aux_j3,aux_j4+1):
-                    color= tuple(img[x][y])
-                    r, g, b =  color
-                    #print("Ma")
-                    #print("<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(x)+","+str(y)+"]")
-                    save_pixelsgA(r,g,b,dist8)
-                    dist8 = dist8 + 1
-                    #print_msp()
-             #       print("Ma m "+str(matrix_1[x][y])+" x "+str(x)+" y "+str(y))
-                   # sum1+=matrix_1[x][y]
-            #        print("==========="+str(sum1))
-            #B
-            ik6=0
-            dist9=1
-            while ik6<=aux_j4:
-              #  print("Mb m "+str(matrix_1[0][ik6])+" x "+str(0)+" y "+str(ik6))
-               # sum1+=matrix_1[0][ik6]
-               # print("==========="+str(sum1))
-                color= tuple(img[0][ik6])
-                r, g, b =  color
-                #print("Mb")
-                #print("<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(0)+","+str(ik6)+"]")
-                save_pixelsgB(r,g,b,dist9)
-                dist9 = dist9 + 1
-                #print_msp()
-                ik6 = ik6 + 1
-            #C
-            it3=aux_i3
-            dist10=1
-            #  print("height "+str(height))
-            while it3<=rule_2:
-                
-                if it3>=height:
-                    it3 = it3 - 1
-                    #           print("Mc1 m  x "+str(it3)+" y "+str(rule_2))
-                    # sum1+=matrix_1[it3][rule_1]
-                    #print("==========="+str(sum1))
-                    color= tuple(img[it3][rule_2])
-                    r, g, b =  color
-                    #print("Mc")
-                    #print("1<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(it3)+","+str(rule_2)+"]")
-                    save_pixelsgC(r,g,b,dist10)
-                    dist10 = dist10 + 1
-                    it3 = rule_2
-                else:    
-                    #              print("Mc2 m  x "+str(it3)+" y "+str(rule_2))
-                    # sum1+=matrix_1[it3][rule_1]
-                    #print("==========="+str(sum1))
-                    color= tuple(img[it3][rule_2])
-                    r, g, b =  color
-                    #print("Mc")
-                    #             print("2<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(it3)+","+str(rule_2)+"]")
-                    save_pixelsgC(r,g,b,dist10)
-                    dist10 = dist10 + 1
-                    #print_msp()
-                it3 = it3 + 1
-                
-           # sum1+=matrix_1[0][rule_1]
-            #print("==========="+str(sum1))
-           # matrix_2[aux_i][aux_j]=sum1
-            #D
-            #print("Md") 
-            color= tuple(img[0][rule_2])
-            r,g,b =  color
-            save_pixelsgD(r,g,b)
-            #print("<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(0)+","+str(rule_2)+"]")
-            #print_msp()
-            npixel=operation()
-            outputImg[aux_i][aux_j]=npixel[0]
-            #output=Image.fromarray(outputImg)
-            #img.save("/home/alien/Documents/GitHub/Graphics/Processing Images/test_pics/newImage.png")
-        #====================>>BELOW RIGHT SIDE CORNER<<====================       
-        if sect_f == 1:
-            aux_i2-=1
-            aux_j2-=1
-            
-            #A
-            dist20=1
-            for x in range(aux_i1,aux_i2+1,):
-               for y in range(aux_j1,aux_j2+1,):
-            #        print("Ma m "+str(matrix_1[x][y])+" x "+str(x)+" y "+str(y))
-                    color= tuple(img[x][y])
-                    r, g, b =  color
-                #    print("Ma")
-                   # print("f<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(x)+","+str(y)+"]")
-                    save_pixelsfA(r,g,b,dist20)
-                    dist20 = dist20 + 1
-              #      print_msp()
-                    #sum1+=matrix_1[x][y]
-                   # print("==========="+str(sum1))
-                    
-               # print("==========="+str(sum1))
-              #  print("APK aux_i1 "+str(aux_i1)+" aux_j1 "+str(aux_j1)+" aux_i2 "+str(aux_i2)+" aux_j2 "+str(aux_j2)) 
-            #B
-            xr=aux_j1
-            dist22=1
-            while xr<=rule_1:
-                #sum1+=matrix_1[0][xr]
-                color= tuple(img[0][xr])
-                r, g, b =  color
-              #  print("Mb")
-               # print("<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(0)+","+str(xr)+"]")
-                save_pixelsfB(r,g,b,dist22)
-                dist22 = dist22 + 1
-             #   print_msp()
-                xr = xr + 1
-            
-            i5=aux_i1
-            dist21=1
-            #C
-            while i5<=rule_1:
-                #sum1+=matrix_1[i5][0]
-                color= tuple(img[i5][0])
-                r, g, b =  color
-                #print("Mc")
-                #print("<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(i5)+","+str(0)+"]")
-                save_pixelsfC(r,g,b,dist21)
-                dist21 = dist21 + 1
-                #print_msp()
-                i5 = i5 + 1
-                
-            #sum1+=matrix_1[0][0]
-          #  matrix_2[aux_i][aux_j]=sum1
-            #D
-            #print("Md") 
-            color= tuple(img[0][0])
-            r,g,b =  color
-            save_pixelsfD(r,g,b)
-           # print("f2<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(0)+","+str(0)+"]")
-            #print_msp()
-            npixel=operation()
-            outputImg[aux_i][aux_j]=npixel[0]
-            #output=Image.fromarray(outputImg)
-            
-            cv2.imwrite("/home/alien-ware/Documents/GitHub/Graphics/Processing Images/test_pics/newImage.png",outputImg)
-        #====================>>       LEFT SIDE      <<==================== 
-        if sect_e == 1:
-            aux_j1+=1
-            #A
-            dist4=1
-            for x in range(aux_i1,aux_i2+1,):
-                for y in range(aux_j1,aux_j2+1,):
-                    #print("Ma m "+str(matrix_1[x][y])+" x "+str(x)+" y "+str(y))
-                    #sum1+=matrix_1[x][y]
-                    #print("==========="+str(sum1))
-                    color = tuple(img[x][y])
-                    r, g, b = color
-                    #print("Ma")
-                    #print("<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(x)+","+str(y)+"]")
-                    save_pixelseA(r,g,b,dist4)
-                    dist4 = dist4 + 1
-                    #print_msp() 
-         #print("==========="+str(sum1))
-              #  print("APK aux_i1 "+str(aux_i1)+" aux_j1 "+str(aux_j1)+" aux_i2 "+str(aux_i2)+" aux_j2 "+str(aux_j2)) 
-            #B
-            i4=aux_i1
-            dist5=1
-            
-            while i4<=aux_i2:
-                color= tuple(img[i4][rule_2])
-                r,g,b =  color
-                save_pixelseB(r,g,b,dist5)
-                #print("Mb")
-                #print("<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(i4)+","+str(rule_2)+"]")
-                dist5 = dist5 + 1
-                #print_msp() 
-                #print("Mb m "+str(matrix_1[i4][rule_1])+" x "+str(i4)+" y "+str(rule_1))
-                #sum1+=matrix_1[i4][rule_1]
-                #print("==========="+str(sum1))
-                i4 = i4 + 1
-           # matrix_2[aux_i][aux_j]=sum1
-            npixel=operation()
-            outputImg[aux_i][aux_j]=npixel[0]
-            #output=Image.fromarray(outputImg)
-            #img.save("/home/alien/Documents/GitHub/Graphics/Processing Images/test_pics/newImage.png")
-        #====================>>       RIGHT SIDE      <<===================
-        if sect_d == 1:
-            aux_j2-=1
-            dist6=1
-            for x in range(aux_i1,aux_i2+1,):
-               for y in range(aux_j1,aux_j2+1,):
-                    #print("Ma m "+str(matrix_1[x][y])+" x "+str(x)+" y "+str(y))
-                    #sum1+=matrix_1[x][y]
-                    #print("==========="+str(sum1))
-                    color = tuple(img[x][y])
-                    r, g, b = color
-                    #print("Ma")
-                    #print("<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(x)+","+str(y)+"]")
-                    save_pixelsdA(r,g,b,dist6)
-                    dist6 = dist6 + 1
-                    #print_msp() 
-               # print("==========="+str(sum1))
-              #  print("APK aux_i1 "+str(aux_i1)+" aux_j1 "+str(aux_j1)+" aux_i2 "+str(aux_i2)+" aux_j2 "+str(aux_j2)) 
-        
-            i3=aux_i1
-            dist7=1
-            while i3<=aux_i2:
-                color= tuple(img[i3][0])
-                r,g,b =  color
-                save_pixelsdB(r,g,b,dist7)
-                #print("Mb")
-                #print("<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(i3)+","+str(0)+"]")
-                dist7 = dist7 + 1
-                #print_msp() 
-                #print("Mb m "+str(matrix_1[i3][0])+" x "+str(i3)+" y "+str(0))
-                #sum1+=matrix_1[i3][0]
-                #print("==========="+str(sum1))
-                i3 = i3 + 1
-           # matrix_2[aux_i][aux_j]=sum1 
-            npixel=operation()
-            outputImg[aux_i][aux_j]=npixel[0]
-            #output=Image.fromarray(outputImg)
-            #img.save("/home/alien/Documents/GitHub/Graphics/Processing Images/test_pics/newImage.png")
         #====================>>       ABOVE SIDE      <<===================
         if sect_c == 1:
             aux_i1+=1
@@ -1023,7 +709,7 @@ for itx in range(height):
                        r, g, b = color
                        #print("Ma")
                        # print("<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(x)+","+str(y)+"]")
-                       save_pixelscA(r,g,b,dit5)
+                       save_pixelA(r,g,b,dit5,1,3,0,9)
                        dit5 = dit5 + 1
                    else:
                        #print("2POINTP ["+str(x)+","+str(y)+"]")
@@ -1031,7 +717,7 @@ for itx in range(height):
                        r, g, b = color
                        #print("Ma")
                        # print("<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(x)+","+str(y)+"]")
-                       save_pixelscA(r,g,b,dit5)
+                       save_pixelA(r,g,b,dit5,1,3,0,9)
                        dit5 = dit5 + 1
                     #  print_msp() 
                     #        print("Ma m "+str(matrix_1[x][y])+" x "+str(x)+" y "+str(y))
@@ -1048,7 +734,7 @@ for itx in range(height):
                     i2 = i2 - 1
                     color= tuple(img[rule_1][i2])
                     r,g,b =  color
-                    save_pixelscB(r,g,b,dit6)
+                    save_pixelF(r,g,b,dit6,0)
                     #print("Mb")
                     #print("<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(rule_1)+","+str(i2)+"]")
                     dit6 = dit6 + 1
@@ -1058,7 +744,7 @@ for itx in range(height):
                 else:
                     color= tuple(img[rule_1][i2])
                     r,g,b =  color
-                    save_pixelscB(r,g,b,dit6)
+                    save_pixelF(r,g,b,dit6,0)
                     #print("Mb")
                     #print("<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(rule_1)+","+str(i2)+"]")
                     dit6 = dit6 + 1
@@ -1069,70 +755,110 @@ for itx in range(height):
             npixel=operation()
             outputImg[aux_i][aux_j]=npixel[0]
             #output=Image.fromarray(outputImg)
-            #img.save("/home/alien/Documents/GitHub/Graphics/Processing Images/test_pics/newImage.png")
-        #====================>>       BELOW SIDE      <<===================
-        if sect_a == 1:
-            aux_i2-=1
+            #img.save("/home/alien/Documents/GitHub/Graphics/Processing Images/test_pics/newImage.png")    
+        #====================>>ABOVE RIGHT SIDE CORNER<<====================
+        if sect_i == 1:
+            aux_i3+=1
+            aux_j3-=2
+            aux_j4+=1
+            it_1=1
             #A
-            dist11=1
-            for x in range(aux_i1,aux_i2+1,):
-                for y in range(aux_j1,aux_j2+1,):
-                    if y==width:
-                        y = y - 1
-                        color = tuple(img[x][y])
-                        r, g, b = color
-                        #print("Ma")
-                        #print("<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(x)+","+str(y)+"]")
-                        save_pixelsaA(r,g,b,dist11)
-                        dist11 = dist11 + 1    
-                    else:
-                            
-                        #print("Ma m "+str(matrix_1[x][y])+" x "+str(x)+" y "+str(y))
-                        #    sum1+=matrix_1[x][y]
-                        # print("==========="+str(sum1))
-                        color = tuple(img[x][y])
-                        r, g, b = color
-                        #print("Ma")
-                        #print("<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(x)+","+str(y)+"]")
-                        save_pixelsaA(r,g,b,dist11)
-                        dist11 = dist11 + 1
-                        #print_msp() 
+            for x in range(aux_i3,aux_i4+1,):
+               for y in range(aux_j3,aux_j4+1,):
+                   # print("Ma m "+str(matrix_1[x][y])+" x "+str(x)+" y "+str(y))
+                    #sum1+=matrix_1[x][y]
+                 #   print("==========="+str(sum1))
+                    color= tuple(img[x][y])
+                    r, g, b =  color
+                    #print("Ma")
+                    #print("<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(x)+","+str(y)+"]")
+                    save_pixelA(r,g,b,it_1,1,3,0,6)
+                    it_1 = it_1 + 1
+                    #print_msp()
+
                # print("==========="+str(sum1))
               #  print("APK aux_i1 "+str(aux_i1)+" aux_j1 "+str(aux_j1)+" aux_i2 "+str(aux_i2)+" aux_j2 "+str(aux_j2)) 
             #B
-            ii=aux_j1
-            dist12=1
-            print(" POINT [ii"+str(ii)+",aux_j2"+str(aux_j2)+"]")
-            while ii<=aux_j2:
-                #sum1+=matrix_1[0][ii]
-                if ii>=width:
-                    ii = ii - 1
-                    color= tuple(img[0][ii])
-                    r,g,b =  color
-                    save_pixelsaB(r,g,b,dist12)
-                    #print("Mb")
-                    #print("<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(0)+","+str(ii)+"]")
-                    dist12 = dist12 + 1
-                    ii=aux_j2
-                else:
-
-                    color= tuple(img[0][ii])
-                    r,g,b =  color
-                    save_pixelsaB(r,g,b,dist12)
-                    #print("Mb")
-                    #print("<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(0)+","+str(ii)+"]")
-                    dist12 = dist12 + 1
-                    #print_msp()
-                ii = ii + 1
-            #matrix_2[aux_i][aux_j]=sum1
+            it_2=1
+            xr3=aux_j3
+            while xr3<=rule_1:
+                color= tuple(img[rule_1][xr3])
+                r,g,b =  color
+                #print("Mb")
+                #print("<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(rule_1)+","+str(xr3)+"]")
+                save_pixelG(r,g,b,it_2,0,0,6)
+                it_2 = it_2 + 1
+                xr3 = xr3 + 1
+                #print_msp()
+            #C
+            it_3=1
+            i1=0
+            while i1<=aux_i4:
+                color= tuple(img[i1][0])
+                r,g,b =  color
+                #print("Mc")
+                #print("<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(i8)+","+str(0)+"]")
+                save_pixelC(r,g,b,it_3,1,3,6,9)
+                it_3 = it_3 + 1
+                i1 = i1 + 1
+                #print_msp()
+            #D            
+            color= tuple(img[rule_1][0])
+            r,g,b =  color
+            save_pixelH(r,g,b,0,6,9)
+            npixel=operation()
+            outputImg[aux_i][aux_j]=npixel[0]
+            #output=Image.fromarray(outputImg)
+            #img.save("/home/alien/Documents/GitHub/Graphics/Processing Images/test_pics/newImage.png")
+            #print("<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(rule_1)+","+str(rule_2)+"]")
+            #print_msp()
+            
+            #sum1+=matrix_1[rule_1][0]
+          #  matrix_2[aux_i][aux_j]=sum1 
+            #output=Image.fromarray(outputImg)
+            #img.save("/home/alien/Documents/GitHub/Graphics/Processing Images/test_pics/newImage.png")   
+        #====================>>       LEFT SIDE      <<==================== 
+        if sect_e == 1:
+            aux_j1+=1
+            #A
+            dist4=1
+            for x in range(aux_i1,aux_i2+1,):
+                for y in range(aux_j1,aux_j2+1,):
+                    #print("Ma m "+str(matrix_1[x][y])+" x "+str(x)+" y "+str(y))
+                    #sum1+=matrix_1[x][y]
+                    #print("==========="+str(sum1))
+                    color = tuple(img[x][y])
+                    r, g, b = color
+                    #print("Ma")
+                    #print("<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(x)+","+str(y)+"]")
+                    save_pixelD(r,g,b,dist4,0,3,3,9)
+                    dist4 = dist4 + 1
+                    #print_msp() 
+         #print("==========="+str(sum1))
+              #  print("APK aux_i1 "+str(aux_i1)+" aux_j1 "+str(aux_j1)+" aux_i2 "+str(aux_i2)+" aux_j2 "+str(aux_j2)) 
+            #B
+            i4=aux_i1
+            dist5=1
+            
+            while i4<=aux_i2:
+                color= tuple(img[i4][rule_2])
+                r,g,b =  color
+                save_pixelE(r,g,b,dist5,0,3,0,3)
+                #print("Mb")
+                #print("<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(i4)+","+str(rule_2)+"]")
+                dist5 = dist5 + 1
+                #print_msp() 
+                #print("Mb m "+str(matrix_1[i4][rule_1])+" x "+str(i4)+" y "+str(rule_1))
+                #sum1+=matrix_1[i4][rule_1]
+                #print("==========="+str(sum1))
+                i4 = i4 + 1
+           # matrix_2[aux_i][aux_j]=sum1
             npixel=operation()
             outputImg[aux_i][aux_j]=npixel[0]
             #output=Image.fromarray(outputImg)
             #img.save("/home/alien/Documents/GitHub/Graphics/Processing Images/test_pics/newImage.png")
         #====================>>       CENTER SIDE      <<==================
-        if sect_b == 1:
-
-            
+        if sect_b == 1:     
             dist6=1
             for x in range(aux_i1,aux_i2+1,):
                 for y in range(aux_j1,aux_j2+1,):
@@ -1165,6 +891,249 @@ for itx in range(height):
             #output=Image.fromarray(outputImg)
             #img.save("/home/alien/Documents/GitHub/Graphics/Processing Images/test_pics/newImage.png")
            # 
+        #====================>>       RIGHT SIDE      <<===================
+        if sect_d == 1:
+            aux_j2-=1
+            dist6=1
+            for x in range(aux_i1,aux_i2+1,):
+               for y in range(aux_j1,aux_j2+1,):
+                    #print("Ma m "+str(matrix_1[x][y])+" x "+str(x)+" y "+str(y))
+                    #sum1+=matrix_1[x][y]
+                    #print("==========="+str(sum1))
+                    color = tuple(img[x][y])
+                    r, g, b = color
+                    #print("Ma")
+                    #print("<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(x)+","+str(y)+"]")
+                    save_pixelD(r,g,b,dist6,0,3,0,6)
+                    dist6 = dist6 + 1
+                    #print_msp() 
+               # print("==========="+str(sum1))
+              #  print("APK aux_i1 "+str(aux_i1)+" aux_j1 "+str(aux_j1)+" aux_i2 "+str(aux_i2)+" aux_j2 "+str(aux_j2)) 
+        
+            i3=aux_i1
+            dist7=1
+            while i3<=aux_i2:
+                color= tuple(img[i3][0])
+                r,g,b =  color
+                save_pixelE(r,g,b,dist7,0,3,6,9)
+                #print("Mb")
+                #print("<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(i3)+","+str(0)+"]")
+                dist7 = dist7 + 1
+                #print_msp() 
+                #print("Mb m "+str(matrix_1[i3][0])+" x "+str(i3)+" y "+str(0))
+                #sum1+=matrix_1[i3][0]
+                #print("==========="+str(sum1))
+                i3 = i3 + 1
+           # matrix_2[aux_i][aux_j]=sum1 
+            npixel=operation()
+            outputImg[aux_i][aux_j]=npixel[0]
+            #output=Image.fromarray(outputImg)
+            #img.save("/home/alien/Documents/GitHub/Graphics/Processing Images/test_pics/newImage.png")        
+        #====================>>BELOW LEFT SIDE CORNER<<=====================       
+        if sect_g == 1:
+            aux_j3-=1
+            aux_i4-=1
+            aux_j4+=2
+            dist8=1
+            #A
+            for x in range(aux_i3,aux_i4+1):
+                for y in range(aux_j3,aux_j4+1):
+                    color= tuple(img[x][y])
+                    r, g, b =  color
+                    #print("Ma")
+                    #print("<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(x)+","+str(y)+"]")
+                    save_pixelA(r,g,b,dist8,0,2,3,9)
+                    dist8 = dist8 + 1
+                    #print_msp()
+             #       print("Ma m "+str(matrix_1[x][y])+" x "+str(x)+" y "+str(y))
+                   # sum1+=matrix_1[x][y]
+            #        print("==========="+str(sum1))
+            #B
+            ik6=0
+            dist9=1
+            while ik6<=aux_j4:
+              #  print("Mb m "+str(matrix_1[0][ik6])+" x "+str(0)+" y "+str(ik6))
+               # sum1+=matrix_1[0][ik6]
+               # print("==========="+str(sum1))
+                color= tuple(img[0][ik6])
+                r, g, b =  color
+                #print("Mb")
+                #print("<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(0)+","+str(ik6)+"]")
+                save_pixelG(r,g,b,dist9,2,3,9)
+                dist9 = dist9 + 1
+                #print_msp()
+                ik6 = ik6 + 1
+            #C
+            it3=aux_i3
+            dist10=1
+            #  print("height "+str(height))
+            while it3<=rule_2:
+                
+                if it3>=height:
+                    it3 = it3 - 1
+                    #           print("Mc1 m  x "+str(it3)+" y "+str(rule_2))
+                    # sum1+=matrix_1[it3][rule_1]
+                    #print("==========="+str(sum1))
+                    color= tuple(img[it3][rule_2])
+                    r, g, b =  color
+                    #print("Mc")
+                    #print("1<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(it3)+","+str(rule_2)+"]")
+                    save_pixelC(r,g,b,dist10,0,2,0,3)
+                    dist10 = dist10 + 1
+                    it3 = rule_2
+                else:    
+                    #              print("Mc2 m  x "+str(it3)+" y "+str(rule_2))
+                    # sum1+=matrix_1[it3][rule_1]
+                    #print("==========="+str(sum1))
+                    color= tuple(img[it3][rule_2])
+                    r, g, b =  color
+                    #print("Mc")
+                    #             print("2<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(it3)+","+str(rule_2)+"]")
+                    save_pixelC(r,g,b,dist10,0,2,0,3)
+                    dist10 = dist10 + 1
+                    #print_msp()
+                it3 = it3 + 1
+                
+           # sum1+=matrix_1[0][rule_1]
+            #print("==========="+str(sum1))
+           # matrix_2[aux_i][aux_j]=sum1
+            #D
+            #print("Md") 
+            color= tuple(img[0][rule_2])
+            r,g,b =  color
+            save_pixelH(r,g,b,2,0,3)
+            #print("<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(0)+","+str(rule_2)+"]")
+            #print_msp()
+            npixel=operation()
+            outputImg[aux_i][aux_j]=npixel[0]
+            #output=Image.fromarray(outputImg)
+            #img.save("/home/alien/Documents/GitHub/Graphics/Processing Images/test_pics/newImage.png")
+        #====================>>       BELOW SIDE      <<===================
+        if sect_a == 1:
+            aux_i2-=1
+            #A
+            dist11=1
+            for x in range(aux_i1,aux_i2+1,):
+                for y in range(aux_j1,aux_j2+1,):
+                    if y==width:
+                        y = y - 1
+                        color = tuple(img[x][y])
+                        r, g, b = color
+                        #print("Ma")
+                        #print("<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(x)+","+str(y)+"]")
+                        save_pixelB(r,g,b,dist11,0,2,0,9)
+                        dist11 = dist11 + 1    
+                    else:
+                            
+                        #print("Ma m "+str(matrix_1[x][y])+" x "+str(x)+" y "+str(y))
+                        #    sum1+=matrix_1[x][y]
+                        # print("==========="+str(sum1))
+                        color = tuple(img[x][y])
+                        r, g, b = color
+                        #print("Ma")
+                        #print("<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(x)+","+str(y)+"]")
+                        save_pixelB(r,g,b,dist11,0,2,0,9)
+                        dist11 = dist11 + 1
+                        #print_msp() 
+               # print("==========="+str(sum1))
+              #  print("APK aux_i1 "+str(aux_i1)+" aux_j1 "+str(aux_j1)+" aux_i2 "+str(aux_i2)+" aux_j2 "+str(aux_j2)) 
+            #B
+            ii=aux_j1
+            dist12=1
+            print(" POINT [ii"+str(ii)+",aux_j2"+str(aux_j2)+"]")
+            while ii<=aux_j2:
+                #sum1+=matrix_1[0][ii]
+                if ii>=width:
+                    ii = ii - 1
+                    color= tuple(img[0][ii])
+                    r,g,b =  color
+                    save_pixelF(r,g,b,dist12,2)
+                    #print("Mb")
+                    #print("<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(0)+","+str(ii)+"]")
+                    dist12 = dist12 + 1
+                    ii=aux_j2
+                else:
+
+                    color= tuple(img[0][ii])
+                    r,g,b =  color
+                    save_pixelF(r,g,b,dist12,2)
+                    #print("Mb")
+                    #print("<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(0)+","+str(ii)+"]")
+                    dist12 = dist12 + 1
+                    #print_msp()
+                ii = ii + 1
+            #matrix_2[aux_i][aux_j]=sum1
+            npixel=operation()
+            outputImg[aux_i][aux_j]=npixel[0]
+            #output=Image.fromarray(outputImg)
+            #img.save("/home/alien/Documents/GitHub/Graphics/Processing Images/test_pics/newImage.png")
+        #====================>>BELOW RIGHT SIDE CORNER<<====================       
+        if sect_f == 1:
+            aux_i2-=1
+            aux_j2-=1
+            
+            #A
+            dist20=1
+            for x in range(aux_i1,aux_i2+1,):
+               for y in range(aux_j1,aux_j2+1,):
+            #        print("Ma m "+str(matrix_1[x][y])+" x "+str(x)+" y "+str(y))
+                    color= tuple(img[x][y])
+                    r, g, b =  color
+                #    print("Ma")
+                   # print("f<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(x)+","+str(y)+"]")
+                    save_pixelA(r,g,b,dist20,0,2,0,6)
+                    dist20 = dist20 + 1
+              #      print_msp()
+                    #sum1+=matrix_1[x][y]
+                   # print("==========="+str(sum1))
+                    
+               # print("==========="+str(sum1))
+              #  print("APK aux_i1 "+str(aux_i1)+" aux_j1 "+str(aux_j1)+" aux_i2 "+str(aux_i2)+" aux_j2 "+str(aux_j2)) 
+            #B
+            xr=aux_j1
+            dist22=1
+            while xr<=rule_1:
+                #sum1+=matrix_1[0][xr]
+                color= tuple(img[0][xr])
+                r, g, b =  color
+              #  print("Mb")
+               # print("<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(0)+","+str(xr)+"]")
+                save_pixelG(r,g,b,dist22,2,0,6)
+                dist22 = dist22 + 1
+             #   print_msp()
+                xr = xr + 1
+            
+            i5=aux_i1
+            dist21=1
+            #C
+            while i5<=rule_1:
+                #sum1+=matrix_1[i5][0]
+                color= tuple(img[i5][0])
+                r, g, b =  color
+                #print("Mc")
+                #print("<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(i5)+","+str(0)+"]")
+                save_pixelC(r,g,b,dist21,0,2,6,9)
+                dist21 = dist21 + 1
+                #print_msp()
+                i5 = i5 + 1
+                
+            #sum1+=matrix_1[0][0]
+          #  matrix_2[aux_i][aux_j]=sum1
+            #D
+            #print("Md") 
+            color= tuple(img[0][0])
+            r,g,b =  color
+            save_pixelH(r,g,b,2,6,9)
+           # print("f2<R "+str(r)+"> <G "+str(g)+"> <B "+str(b)+" > POINT ["+str(0)+","+str(0)+"]")
+            #print_msp()
+            npixel=operation()
+            outputImg[aux_i][aux_j]=npixel[0]
+            #output=Image.fromarray(outputImg)
+            
+            cv2.imwrite("/home/alien-ware/Documents/GitHub/Graphics/Processing Images/test_pics/newImage.png",outputImg)
+        
+        
+        
         #clean values
         if sect_a==1 or sect_b==1 or sect_c==1 or sect_d==1 or sect_e==1 or sect_f==1 or sect_g==1 or sect_h==1 or sect_i==1:
             aux_j=0
