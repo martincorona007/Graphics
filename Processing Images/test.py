@@ -1,8 +1,10 @@
+"""
 from PIL import Image
 import numpy
 import imageio
 import matplotlib.pyplot as plt
 from skimage.io import imshow,show,imread,imsave
+"""
 """
 from PIL import Image as img
 im = img.open('pk.PNG')
@@ -21,7 +23,7 @@ for y in range(im.shape[0]):
         r, g, b = color
 """
 import cv2
-img=cv2.imread('p4.jpg')
+img=cv2.imread('images/p4.jpg')
 #outPutImg=img.shape
 for x in range(img.shape[0]):
     for y in range(img.shape[1]):

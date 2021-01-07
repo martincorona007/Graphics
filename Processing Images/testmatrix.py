@@ -8,17 +8,17 @@ def print_mc():
         print(' '.join([str(elem) for elem in row]))
     print("\n")
 
-for xrt in range(0,2):
-    for yrt in range(0,6):
-        matrix_savePixel[xrt][yrt]=1
+for x in range(0,2):
+    for y in range(0,6):
+        matrix_savePixel[x][y]=1
 print_mc()
-for xrt in range(6):
-    matrix_savePixel[2][xrt]=2
+for x in range(0,2):
+    for y in range(6,9):
+        matrix_savePixel[x][y]=2
 print_mc()
-for xrt in range(0,2):
-    for yrt in range(6,9):
-        matrix_savePixel[xrt][yrt]=3
+for y in range(6):
+    matrix_savePixel[2][y]=3
 print_mc()
-for xrt in range(6,9):
-    matrix_savePixel[2][xrt]=4
+for y in range(6,9):
+    matrix_savePixel[2][y]=4
 print_mc()
