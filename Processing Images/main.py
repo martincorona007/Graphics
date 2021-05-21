@@ -4,26 +4,26 @@ Author: Martin Corona
 import cv2
 import numpy as np
 from PIL import Image
-img=cv2.imread('images/prueba2.png')
+img = cv2.imread('images/prueba2.png')
 #>>>>>>>>>>>>>>>>>>>>>>>>>DECLARATIONS<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
-sum1=0
-rule_1=0
-rule_2=0
-sect_a=0
-sect_b=0
-sect_c=0
-sect_d=0
-sect_e=0
-sect_f=0
-sect_g=0
-sect_h=0
-sect_i=0
+sum1 = 0
+rule_1 = 0
+rule_2 = 0
+sect_a = 0 
+sect_b = 0
+sect_c = 0
+sect_d = 0
+sect_e = 0
+sect_f = 0
+sect_g = 0
+sect_h = 0
+sect_i = 0
 
-ns=9
-ns1=3
-matrix_savePixel= [[0] * ns for i in range(ns1)]
-matrix_saveOperation=[[0] * ns for i in range(ns1)]
+ns = 9
+ns1 = 3
+matrix_savePixel = [[0] * ns for i in range(ns1)]
+matrix_saveOperation =[[0] * ns for i in range(ns1)]
 #>>>>>>>>>>>>>>>>>>>>>>>>>FUNCTIONS<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 #prints
 def print_mc():
@@ -50,356 +50,356 @@ def save_pixelA(R,G,B,doc,a,b,c,d):
     control=1
     for x in range(a,b):
         for y in range(c,d):
-            if doc==1:
-               if 1==control:
-                   matrix_savePixel[x][y]=R
-               if 2==control:
-                   matrix_savePixel[x][y]=G
-               if 3==control:
-                   matrix_savePixel[x][y]=B
-            if doc==2:
-                if 4==control:
-                    matrix_savePixel[x][y]=R
-                if 5==control:
-                    matrix_savePixel[x][y]=G
+            if doc == 1:
+               if 1 == control:
+                   matrix_savePixel[x][y] = R
+               if 2 == control:
+                   matrix_savePixel[x][y] = G
+               if 3 == control:
+                   matrix_savePixel[x][y] = B
+            if doc == 2:
+                if 4 == control:
+                    matrix_savePixel[x][y] = R
+                if 5 == control:
+                    matrix_savePixel[x][y] = G
                 if 6==control:
-                    matrix_savePixel[x][y]=B
-            if doc==3:
-                if 7==control:
-                    matrix_savePixel[x][y]=R
-                if 8==control:
-                    matrix_savePixel[x][y]=G
-                if 9==control:
-                    matrix_savePixel[x][y]=B
-            if doc==4:
-                if 10==control:
-                    matrix_savePixel[x][y]=R
-                if 11==control:
-                    matrix_savePixel[x][y]=G
-                if 12==control:
-                    matrix_savePixel[x][y]=B
+                    matrix_savePixel[x][y] = B
+            if doc == 3:
+                if 7 == control:
+                    matrix_savePixel[x][y] = R
+                if 8 == control:
+                    matrix_savePixel[x][y] = G
+                if 9 == control:
+                    matrix_savePixel[x][y] = B
+            if doc == 4:
+                if 10 == control:
+                    matrix_savePixel[x][y] = R
+                if 11 == control:
+                    matrix_savePixel[x][y] = G
+                if 12 == control:
+                    matrix_savePixel[x][y] = B
             control = control + 1
 def save_pixelB(R,G,B,doc,a,b,c,d):
-    control=1
+    control = 1
     for x in range(a,b):
         for y in range(c,d):
-            if doc==1:
-                if control==1:
-                    matrix_savePixel[x][y]=R
-                if control==2:
-                    matrix_savePixel[x][y]=G
-                if control==3:
-                    matrix_savePixel[x][y]=B
-            if doc==2:
-                if control==4:
-                    matrix_savePixel[x][y]=R
-                if control==5:
-                    matrix_savePixel[x][y]=G
-                if control==6:
-                    matrix_savePixel[x][y]=B
-            if doc==3:
-                if control==7:
-                    matrix_savePixel[x][y]=R
-                if control==8:
-                    matrix_savePixel[x][y]=G
-                if control==9:
-                    matrix_savePixel[x][y]=B
-            if doc==4:
-                if control==10:
-                    matrix_savePixel[x][y]=R
-                if control==11:
-                    matrix_savePixel[x][y]=G
-                if control==12:
-                    matrix_savePixel[x][y]=B
-            if doc==5:
-                if control==13:
-                    matrix_savePixel[x][y]=R
-                if control==14:
-                    matrix_savePixel[x][y]=G
-                if control==15:
-                    matrix_savePixel[x][y]=B
-            if doc==6:
-                if control==16:
-                    matrix_savePixel[x][y]=R
-                if control==17:
-                    matrix_savePixel[x][y]=G
-                if control==18:
-                    matrix_savePixel[x][y]=B
+            if doc == 1:
+                if control == 1:
+                    matrix_savePixel[x][y] = R
+                if control == 2:
+                    matrix_savePixel[x][y] = G
+                if control == 3:
+                    matrix_savePixel[x][y] = B
+            if doc == 2:
+                if control == 4:
+                    matrix_savePixel[x][y] = R
+                if control == 5:
+                    matrix_savePixel[x][y] = G
+                if control == 6:
+                    matrix_savePixel[x][y] = B
+            if doc == 3:
+                if control == 7:
+                    matrix_savePixel[x][y] = R
+                if control == 8:
+                    matrix_savePixel[x][y] = G
+                if control == 9:
+                    matrix_savePixel[x][y] = B
+            if doc == 4:
+                if control == 10:
+                    matrix_savePixel[x][y] = R
+                if control == 11:
+                    matrix_savePixel[x][y] = G
+                if control == 12:
+                    matrix_savePixel[x][y] = B
+            if doc == 5:
+                if control == 13:
+                    matrix_savePixel[x][y] = R
+                if control == 14:
+                    matrix_savePixel[x][y] = G
+                if control == 15:
+                    matrix_savePixel[x][y] = B
+            if doc == 6:
+                if control == 16:
+                    matrix_savePixel[x][y] = R
+                if control == 17:
+                    matrix_savePixel[x][y] = G
+                if control == 18:
+                    matrix_savePixel[x][y] =B
             control = control + 1 
 def save_pixelC(R,G,B,doc,a,b,c,d):
-    control=1
+    control = 1
     for x in range(a,b):
         for y in range(c,d):
-            if doc==1:
-                if control==1:
-                    matrix_savePixel[x][y]=R
-                if control==2:
-                    matrix_savePixel[x][y]=G
-                if control==3:
-                    matrix_savePixel[x][y]=B
-            if doc==2:
-                if control==4:
-                    matrix_savePixel[x][y]=R
-                if control==5:
-                    matrix_savePixel[x][y]=G
-                if control==6:
-                    matrix_savePixel[x][y]=B
+            if doc == 1:
+                if control == 1:
+                    matrix_savePixel[x][y] = R
+                if control == 2:
+                    matrix_savePixel[x][y] = G
+                if control == 3:
+                    matrix_savePixel[x][y] = B
+            if doc == 2:
+                if control == 4:
+                    matrix_savePixel[x][y] = R
+                if control == 5:
+                    matrix_savePixel[x][y] = G
+                if control == 6:
+                    matrix_savePixel[x][y] = B
             control = control + 1
 def save_pixelD(R,G,B,doc,a,b,c,d):
-    control=1
+    control = 1
     for x in range(a,b):
         for y in range(c,d):
-            if doc==1:
-                if control==1:
-                    matrix_savePixel[x][y]=R
-                if control==2:
-                    matrix_savePixel[x][y]=G
-                if control==3:
-                    matrix_savePixel[x][y]=B
-            if doc==2:
-                if control==4:
-                    matrix_savePixel[x][y]=R
-                if control==5:
-                    matrix_savePixel[x][y]=G
-                if control==6:
-                    matrix_savePixel[x][y]=B
-            if doc==3:
-                if control==7:
-                    matrix_savePixel[x][y]=R
-                if control==8:
-                    matrix_savePixel[x][y]=G
-                if control==9:
-                    matrix_savePixel[x][y]=B
-            if doc==4:
-                if control==10:
-                    matrix_savePixel[x][y]=R
-                if control==11:
-                    matrix_savePixel[x][y]=G
-                if control==12:
-                    matrix_savePixel[x][y]=B
-            if doc==5:
-                if control==13:
-                    matrix_savePixel[x][y]=R
-                if control==14:
-                    matrix_savePixel[x][y]=G
-                if control==15:
-                    matrix_savePixel[x][y]=B
-            if doc==6:
-                if control==16:
-                    matrix_savePixel[x][y]=R
-                if control==17:
-                    matrix_savePixel[x][y]=G
-                if control==18:
-                    matrix_savePixel[x][y]=B
+            if doc == 1:
+                if control == 1:
+                    matrix_savePixel[x][y] = R
+                if control == 2:
+                    matrix_savePixel[x][y] = G
+                if control == 3:
+                    matrix_savePixel[x][y] = B
+            if doc == 2:
+                if control == 4:
+                    matrix_savePixel[x][y] = R
+                if control == 5:
+                    matrix_savePixel[x][y] = G
+                if control == 6:
+                    matrix_savePixel[x][y] = B
+            if doc == 3:
+                if control == 7:
+                    matrix_savePixel[x][y] = R
+                if control == 8:
+                    matrix_savePixel[x][y] = G
+                if control == 9:
+                    matrix_savePixel[x][y] = B
+            if doc == 4:
+                if control == 10:
+                    matrix_savePixel[x][y] = R
+                if control == 11:
+                    matrix_savePixel[x][y] = G
+                if control == 12:
+                    matrix_savePixel[x][y] = B
+            if doc == 5:
+                if control == 13:
+                    matrix_savePixel[x][y] = R
+                if control == 14:
+                    matrix_savePixel[x][y] = G
+                if control == 15:
+                    matrix_savePixel[x][y] = B
+            if doc == 6:
+                if control == 16:
+                    matrix_savePixel[x][y] = R
+                if control == 17:
+                    matrix_savePixel[x][y] = G
+                if control == 18:
+                    matrix_savePixel[x][y] = B
             control = control + 1
 def save_pixelE(R,G,B,doc,a,b,c,d):
-    control=1
+    control = 1
     for x in range(a,b):
         for y in range(c,d):
-            if doc==1:
-                if control==1:
-                    matrix_savePixel[x][y]=R
-                if control==2:
-                    matrix_savePixel[x][y]=G
-                if control==3:
-                    matrix_savePixel[x][y]=B
-            if doc==2:
-                if control==4:
-                    matrix_savePixel[x][y]=R
-                if control==5:
-                    matrix_savePixel[x][y]=G
-                if control==6:
-                    matrix_savePixel[x][y]=B
-            if doc==3:
-                if control==7:
-                    matrix_savePixel[x][y]=R
-                if control==8:
-                    matrix_savePixel[x][y]=G
-                if control==9:
-                    matrix_savePixel[x][y]=B
+            if doc == 1:
+                if control == 1:
+                    matrix_savePixel[x][y] = R
+                if control == 2:
+                    matrix_savePixel[x][y] = G
+                if control == 3:
+                    matrix_savePixel[x][y] = B
+            if doc == 2:
+                if control == 4:
+                    matrix_savePixel[x][y] = R
+                if control == 5:
+                    matrix_savePixel[x][y] = G
+                if control == 6:
+                    matrix_savePixel[x][y] = B
+            if doc == 3:
+                if control == 7:
+                    matrix_savePixel[x][y] = R
+                if control == 8:
+                    matrix_savePixel[x][y] = G
+                if control == 9:
+                    matrix_savePixel[x][y] = B
             control = control + 1  
 def save_pixelF(R,G,B,doc,x):
-    control=1
+    control = 1
     for y in range(9):
-        if doc==1:
-            if control==1:
-                matrix_savePixel[x][y]=R
-            if control==2:
-                matrix_savePixel[x][y]=G
-            if control==3:
-                matrix_savePixel[x][y]=B
-        if doc==2:
-            if control==4:
-                matrix_savePixel[x][y]=R
-            if control==5:
-                matrix_savePixel[x][y]=G
-            if control==6:
-                matrix_savePixel[x][y]=B
-        if doc==3:
-            if control==7:
-                matrix_savePixel[x][y]=R
-            if control==8:
-                matrix_savePixel[x][y]=G
-            if control==9:
-                matrix_savePixel[x][y]=B
+        if doc == 1:
+            if control == 1:
+                matrix_savePixel[x][y] = R
+            if control == 2:
+                matrix_savePixel[x][y] = G
+            if control == 3:
+                matrix_savePixel[x][y] = B
+        if doc == 2:
+            if control == 4:
+                matrix_savePixel[x][y] = R
+            if control == 5:
+                matrix_savePixel[x][y] = G
+            if control == 6:
+                matrix_savePixel[x][y] = B
+        if doc == 3:
+            if control == 7:
+                matrix_savePixel[x][y] = R
+            if control == 8:
+                matrix_savePixel[x][y] = G
+            if control == 9:
+                matrix_savePixel[x][y] = B
         control = control + 1 
 def save_pixelG(R,G,B,doc,x,a,b):
-    control=1
+    control = 1
     for y in range(a,b):
-        if doc==1:
-            if 1==control:
-                matrix_savePixel[x][y]=R
-            if 2==control:
-                matrix_savePixel[x][y]=G
-            if 3==control:
-                matrix_savePixel[x][y]=B
-        if doc==2:
-            if 4==control:
-                matrix_savePixel[x][y]=R
-            if 5==control:
-                matrix_savePixel[x][y]=G
-            if 6==control:
-                matrix_savePixel[x][y]=B
+        if doc == 1:
+            if 1 == control:
+                matrix_savePixel[x][y] = R
+            if 2 == control:
+                matrix_savePixel[x][y] = G
+            if 3 == control:
+                matrix_savePixel[x][y] = B
+        if doc == 2:
+            if 4 == control:
+                matrix_savePixel[x][y] = R
+            if 5 == control:
+                matrix_savePixel[x][y] = G
+            if 6 == control:
+                matrix_savePixel[x][y] = B
         control = control + 1     
 def save_pixelH(R,G,B,x,a,b):
-    control=1
+    control = 1
     for y in range(a,b):
         if control == 1:
-            matrix_savePixel[x][y]=R
+            matrix_savePixel[x][y] = R
         if control == 2:
-            matrix_savePixel[x][y]=G
+            matrix_savePixel[x][y] = G
         if control == 3:
-            matrix_savePixel[x][y]=B
+            matrix_savePixel[x][y] = B
         control = control + 1 
     
 def save_pixelsbA(R,G,B,doc):
-    control=1
+    control = 1
     for x in range(0,3):
         for y in range(0,9):
-            if doc==1:
-                if control==1:
-                    matrix_savePixel[x][y]=R
-                if control==2:
-                    matrix_savePixel[x][y]=G
-                if control==3:
-                    matrix_savePixel[x][y]=B
-            if doc==2:
-                if control==4:
-                    matrix_savePixel[x][y]=R
-                if control==5:
-                    matrix_savePixel[x][y]=G
-                if control==6:
-                    matrix_savePixel[x][y]=B
-            if doc==3:
-                if control==7:
-                    matrix_savePixel[x][y]=R
-                if control==8:
-                    matrix_savePixel[x][y]=G
-                if control==9:
-                    matrix_savePixel[x][y]=B
-            if doc==4:
-                if control==10:
-                    matrix_savePixel[x][y]=R
-                if control==11:
-                    matrix_savePixel[x][y]=G
-                if control==12:
-                    matrix_savePixel[x][y]=B
-            if doc==5:
-                if control==13:
-                    matrix_savePixel[x][y]=R
-                if control==14:
-                    matrix_savePixel[x][y]=G
-                if control==15:
-                    matrix_savePixel[x][y]=B
-            if doc==6:
-                if control==16:
-                    matrix_savePixel[x][y]=R
-                if control==17:
-                    matrix_savePixel[x][y]=G
-                if control==18:
-                    matrix_savePixel[x][y]=B
-            if doc==7:
-                if control==19:
-                    matrix_savePixel[x][y]=R
-                if control==20:
-                    matrix_savePixel[x][y]=G
-                if control==21:
-                    matrix_savePixel[x][y]=B
-            if doc==8:
-                if control==22:
-                    matrix_savePixel[x][y]=R
-                if control==23:
-                    matrix_savePixel[x][y]=G
-                if control==24:
-                    matrix_savePixel[x][y]=B
-            if doc==9:
-                if control==25:
-                    matrix_savePixel[x][y]=R
-                if control==26:
-                    matrix_savePixel[x][y]=G
-                if control==27:
-                    matrix_savePixel[x][y]=B
+            if doc == 1:
+                if control == 1:
+                    matrix_savePixel[x][y] = R
+                if control == 2:
+                    matrix_savePixel[x][y] = G
+                if control == 3:
+                    matrix_savePixel[x][y] = B
+            if doc == 2:
+                if control == 4:
+                    matrix_savePixel[x][y] = R
+                if control == 5:
+                    matrix_savePixel[x][y] = G
+                if control == 6:
+                    matrix_savePixel[x][y] = B
+            if doc == 3:
+                if control == 7:
+                    matrix_savePixel[x][y] = R
+                if control == 8:
+                    matrix_savePixel[x][y] = G
+                if control == 9:
+                    matrix_savePixel[x][y] = B
+            if doc == 4:
+                if control == 10:
+                    matrix_savePixel[x][y] = R
+                if control == 11:
+                    matrix_savePixel[x][y] = G
+                if control == 12:
+                    matrix_savePixel[x][y] = B
+            if doc == 5:
+                if control == 13:
+                    matrix_savePixel[x][y] = R
+                if control == 14:
+                    matrix_savePixel[x][y] = G
+                if control == 15:
+                    matrix_savePixel[x][y] = B
+            if doc == 6:
+                if control == 16:
+                    matrix_savePixel[x][y] = R
+                if control == 17:
+                    matrix_savePixel[x][y] = G
+                if control == 18:
+                    matrix_savePixel[x][y] = B
+            if doc == 7:
+                if control == 19:
+                    matrix_savePixel[x][y] = R
+                if control == 20:
+                    matrix_savePixel[x][y] = G
+                if control == 21:
+                    matrix_savePixel[x][y] = B
+            if doc == 8:
+                if control == 22:
+                    matrix_savePixel[x][y] = R
+                if control == 23:
+                    matrix_savePixel[x][y] = G
+                if control == 24:
+                    matrix_savePixel[x][y] = B
+            if doc == 9:
+                if control == 25:
+                    matrix_savePixel[x][y] = R
+                if control == 26:
+                    matrix_savePixel[x][y] = G
+                if control == 27:
+                    matrix_savePixel[x][y] = B
             control = control + 1 
 #>>>>>>>>>>>>>>>>>>>>>>>>OPERARTION<<<<<<<<<<<<<<<<<<<<<<<<<
 def operation():
-    listnewpixel=[]
-    sector=1
+    listnewpixel = []
+    sector = 1
     for li in range(3):
         for lo in range(9):
-            if sector==1:
-                matrix_saveOperation[li][lo]=int(matrix_savePixel[li][lo]*matrix_convolution[0][0])
-            if sector==2:
-                matrix_saveOperation[li][lo]=int(matrix_savePixel[li][lo]*matrix_convolution[0][0])
-            if sector==3:
-                matrix_saveOperation[li][lo]=int(matrix_savePixel[li][lo]*matrix_convolution[0][0])
-            if sector==4:
-                matrix_saveOperation[li][lo]=int(matrix_savePixel[li][lo]*matrix_convolution[0][1])
-            if sector==5:
-                matrix_saveOperation[li][lo]=int(matrix_savePixel[li][lo]*matrix_convolution[0][1])
-            if sector==6:
-                matrix_saveOperation[li][lo]=int(matrix_savePixel[li][lo]*matrix_convolution[0][1])
-            if sector==7:
-                matrix_saveOperation[li][lo]=int(matrix_savePixel[li][lo]*matrix_convolution[0][2])
-            if sector==8:
-                matrix_saveOperation[li][lo]=int(matrix_savePixel[li][lo]*matrix_convolution[0][2])
-            if sector==9:
-                matrix_saveOperation[li][lo]=int(matrix_savePixel[li][lo]*matrix_convolution[0][2])
-            if sector==10:
-                matrix_saveOperation[li][lo]=int(matrix_savePixel[li][lo]*matrix_convolution[1][0])
-            if sector==11:
-                matrix_saveOperation[li][lo]=int(matrix_savePixel[li][lo]*matrix_convolution[1][0])
-            if sector==12:
-                matrix_saveOperation[li][lo]=int(matrix_savePixel[li][lo]*matrix_convolution[1][0])
-            if sector==13:
-                matrix_saveOperation[li][lo]=int(matrix_savePixel[li][lo]*matrix_convolution[1][1])
-            if sector==14:
-                matrix_saveOperation[li][lo]=int(matrix_savePixel[li][lo]*matrix_convolution[1][1])
-            if sector==15:
-                matrix_saveOperation[li][lo]=int(matrix_savePixel[li][lo]*matrix_convolution[1][1])
-            if sector==16:
-                matrix_saveOperation[li][lo]=int(matrix_savePixel[li][lo]*matrix_convolution[1][2])
-            if sector==17:
-                matrix_saveOperation[li][lo]=int(matrix_savePixel[li][lo]*matrix_convolution[1][2])
-            if sector==18:
-                matrix_saveOperation[li][lo]=int(matrix_savePixel[li][lo]*matrix_convolution[1][2])
-            if sector==19:
-                matrix_saveOperation[li][lo]=int(matrix_savePixel[li][lo]*matrix_convolution[2][0])
-            if sector==20:
-                matrix_saveOperation[li][lo]=int(matrix_savePixel[li][lo]*matrix_convolution[2][0])
-            if sector==21:
-                matrix_saveOperation[li][lo]=int(matrix_savePixel[li][lo]*matrix_convolution[2][0])
-            if sector==22:
-                matrix_saveOperation[li][lo]=int(matrix_savePixel[li][lo]*matrix_convolution[2][1])
-            if sector==23:
-                matrix_saveOperation[li][lo]=int(matrix_savePixel[li][lo]*matrix_convolution[2][1])
-            if sector==24:
-                matrix_saveOperation[li][lo]=int(matrix_savePixel[li][lo]*matrix_convolution[2][1])
-            if sector==25:
-                matrix_saveOperation[li][lo]=int(matrix_savePixel[li][lo]*matrix_convolution[2][2])
-            if sector==26:
-                matrix_saveOperation[li][lo]=int(matrix_savePixel[li][lo]*matrix_convolution[2][2])
-            if sector==27:
-                matrix_saveOperation[li][lo]=int(matrix_savePixel[li][lo]*matrix_convolution[2][2])
+            if sector == 1:
+                matrix_saveOperation[li][lo] = int(matrix_savePixel[li][lo]*matrix_convolution[0][0])
+            if sector == 2:
+                matrix_saveOperation[li][lo] = int(matrix_savePixel[li][lo]*matrix_convolution[0][0])
+            if sector == 3:
+                matrix_saveOperation[li][lo] = int(matrix_savePixel[li][lo]*matrix_convolution[0][0])
+            if sector == 4:
+                matrix_saveOperation[li][lo] = int(matrix_savePixel[li][lo]*matrix_convolution[0][1])
+            if sector == 5:
+                matrix_saveOperation[li][lo] = int(matrix_savePixel[li][lo]*matrix_convolution[0][1])
+            if sector == 6:
+                matrix_saveOperation[li][lo] = int(matrix_savePixel[li][lo]*matrix_convolution[0][1])
+            if sector == 7:
+                matrix_saveOperation[li][lo] = int(matrix_savePixel[li][lo]*matrix_convolution[0][2])
+            if sector == 8:
+                matrix_saveOperation[li][lo] = int(matrix_savePixel[li][lo]*matrix_convolution[0][2])
+            if sector == 9:
+                matrix_saveOperation[li][lo] = int(matrix_savePixel[li][lo]*matrix_convolution[0][2])
+            if sector == 10:
+                matrix_saveOperation[li][lo] = int(matrix_savePixel[li][lo]*matrix_convolution[1][0])
+            if sector == 11:
+                matrix_saveOperation[li][lo] = int(matrix_savePixel[li][lo]*matrix_convolution[1][0])
+            if sector == 12:
+                matrix_saveOperation[li][lo] = int(matrix_savePixel[li][lo]*matrix_convolution[1][0])
+            if sector == 13:
+                matrix_saveOperation[li][lo] = int(matrix_savePixel[li][lo]*matrix_convolution[1][1])
+            if sector == 14:
+                matrix_saveOperation[li][lo] = int(matrix_savePixel[li][lo]*matrix_convolution[1][1])
+            if sector == 15:
+                matrix_saveOperation[li][lo] = int(matrix_savePixel[li][lo]*matrix_convolution[1][1])
+            if sector == 16:
+                matrix_saveOperation[li][lo] = int(matrix_savePixel[li][lo]*matrix_convolution[1][2])
+            if sector == 17:
+                matrix_saveOperation[li][lo] = int(matrix_savePixel[li][lo]*matrix_convolution[1][2])
+            if sector == 18:
+                matrix_saveOperation[li][lo] = int(matrix_savePixel[li][lo]*matrix_convolution[1][2])
+            if sector == 19:
+                matrix_saveOperation[li][lo] = int(matrix_savePixel[li][lo]*matrix_convolution[2][0])
+            if sector == 20:
+                matrix_saveOperation[li][lo] = int(matrix_savePixel[li][lo]*matrix_convolution[2][0])
+            if sector == 21:
+                matrix_saveOperation[li][lo] = int(matrix_savePixel[li][lo]*matrix_convolution[2][0])
+            if sector == 22:
+                matrix_saveOperation[li][lo] = int(matrix_savePixel[li][lo]*matrix_convolution[2][1])
+            if sector == 23:
+                matrix_saveOperation[li][lo] = int(matrix_savePixel[li][lo]*matrix_convolution[2][1])
+            if sector == 24:
+                matrix_saveOperation[li][lo] = int(matrix_savePixel[li][lo]*matrix_convolution[2][1])
+            if sector == 25:
+                matrix_saveOperation[li][lo] = int(matrix_savePixel[li][lo]*matrix_convolution[2][2])
+            if sector == 26:
+                matrix_saveOperation[li][lo] = int(matrix_savePixel[li][lo]*matrix_convolution[2][2])
+            if sector == 27:
+                matrix_saveOperation[li][lo] = int(matrix_savePixel[li][lo]*matrix_convolution[2][2])
             
             sector = sector + 1
 
@@ -409,41 +409,41 @@ def operation():
     for clx in range(3):
         for cly in range(9):
             if matrix_saveOperation[clx][cly]<0:
-                matrix_saveOperation[clx][cly]=matrix_saveOperation[clx][cly]*-1
+                matrix_saveOperation[clx][cly] = matrix_saveOperation[clx][cly]*-1
     print_so()
-    R=0
-    G=0
-    B=0
+    R = 0
+    G = 0
+    B = 0
     for oxl in range(3):
-        R+=matrix_saveOperation[oxl][0]+matrix_saveOperation[oxl][3]+matrix_saveOperation[oxl][6]
-        G+=matrix_saveOperation[oxl][1]+matrix_saveOperation[oxl][4]+matrix_saveOperation[oxl][7]
-        B+=matrix_saveOperation[oxl][2]+matrix_saveOperation[oxl][5]+matrix_saveOperation[oxl][8]
+        R += matrix_saveOperation[oxl][0] + matrix_saveOperation[oxl][3] + matrix_saveOperation[oxl][6]
+        G += matrix_saveOperation[oxl][1] + matrix_saveOperation[oxl][4] + matrix_saveOperation[oxl][7]
+        B += matrix_saveOperation[oxl][2] + matrix_saveOperation[oxl][5] + matrix_saveOperation[oxl][8]
     print("1p R "+str(R)+" G "+str(G)+" B "+str(B))
-    if bias==1:
+    if bias == 1:
         print("with bias")
-        if R>=biasv:
-            R=biasv
-        if G>=biasv:
-            G=biasv
-        if B>=biasv:
-            B=biasv
+        if R >= biasv:
+            R = biasv
+        if G >= biasv:
+            G = biasv
+        if B >= biasv:
+            B = biasv
     else:
         print("without bias")
-        if R>=255:
-            R=255
-        if G>=255:
-            G=255
-        if B>=255:
-            B=255
-        if R<0:
-            R=0
-        if G<0:
-            G=0
-        if B<0:
-            B=0
+        if R >= 255:
+            R = 255
+        if G >= 255:
+            G = 255
+        if B >= 255:
+            B = 255
+        if R < 0:
+            R = 0
+        if G < 0:
+            G = 0
+        if B < 0:
+            B = 0
              #print("1p R "+str(R)+" G "+str(G)+" B "+str(B))
     print("2p R "+str(R)+" G "+str(G)+" B "+str(B))
-    saveNP=[R,G,B]
+    saveNP = [R,G,B]
     listnewpixel.append(saveNP)
     return listnewpixel
 #================================================================
