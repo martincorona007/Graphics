@@ -2,12 +2,34 @@ ns = 9
 ns1 = 3
 matrix_savePixel =  [[0] * ns for i in range(ns1)]
 matrix_saveOperation = [[0] * ns for i in range(ns1)]
+n=3
+matrix_convolution = [[0] * n for i in range(n)]
+matrix_pre = [[0] * n for i in range(n)]#save fraction
+
 def print_mc():
-    print("matrix savepixel")
+    print(" [matrix savepixel]")
+    for row in matrix_savePixel:
+        print(' '.join([str(elem) for elem in row]))
+    print("\n")
+def print_mc():
+    print(" [matrix saveOperation]")
     for row in matrix_savePixel:
         print(' '.join([str(elem) for elem in row]))
     print("\n")
 
+def print_cm():
+    print("[matrix_convolution]")
+    for row in matrix_convolution:
+        print(' '.join([str(elem) for elem in row]))
+    print("\n")
+
+def print_mk():
+    print(" [matrix_pre]")
+    for row in matrix_pre:
+        print(' '.join([str(elem) for elem in row]))
+    print("\n")
+
+"""
 for x in range(0,2):
     for y in range(0,6):
         matrix_savePixel[x][y] = 1
@@ -82,3 +104,4 @@ def operation():
                 matrix_saveOperation[li][lo] = int(matrix_savePixel[li][lo]*matrix_convolution[2][2])
             if sector == 27:
                 matrix_saveOperation[li][lo] = int(matrix_savePixel[li][lo]*matrix_convolution[2][2])
+"""
